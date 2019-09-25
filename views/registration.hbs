@@ -1,0 +1,38 @@
+<div class="loginContainer">
+    <div class="loginTextContainer">
+        <h1>Signup</h1>
+        <span>We do not share your personal details with anyone.</span>
+    </div>
+    <form method="post" action="/home" class="contact-form">
+        <div id="fNameContainer" class="inputContainer">
+            <label for="fName">First name</label>
+            <input type="text" id="fName" placeholder="" required />
+        </div>
+
+        <div id="lNameContainer" class="inputContainer">
+            <label for="lName">Last name</label>
+            <input type="text" id="lName" placeholder="" required />
+        </div>
+
+        <div id="emailContainer" class="inputContainer">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="" required />
+        </div>
+
+        <div id="pswdContainer" class="inputContainer">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder=""
+                oninvalid="this.setCustomValidity('Please enter a 6-10 character password having at least 1 alphabet and 1 number. Allowed special charectors are !@#$%')"
+                pattern="^(?=.*\d+)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%]{6,10}$" required />
+        </div>
+
+        <div id="cnfmPswdContainer" class="inputContainer">
+            <label for="cnfmPassword">Confirm Password</label>
+            <input type="password" id="cnfmPassword" placeholder=""
+                oninvalid="this.setCustomValidity('Please enter a 6-10 character password having at least 1 alphabet and 1 number. Allowed special charectors are !@#$%')"
+                pattern="^(?=.*\d+)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%]{6,10}$" required />
+        </div>
+
+        <button id='submitButton' type="submit">Signup</button>
+    </form>
+</div>
