@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: [
-    './server.js'
+    './src/scripts/index.js'
   ],
   output: {
     path: path.join(__dirname, "src/", "dist"),
@@ -18,13 +18,18 @@ module.exports = {
         }
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.scss$/,
         use: [
-          // Translates CSS into CommonJS
-          'css-loader',
-          // Compiles Sass to CSS
-          'sass-loader',
-        ],
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader"
+          },
+          {
+            loader: "sass-loader"
+          }
+        ]
       },
       {
         test: /\.hbs$/,

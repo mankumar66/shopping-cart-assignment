@@ -34,11 +34,14 @@
     const currentSlide = (n) => {
         showSlides(slideIndex = n + 1);
     }
+
     (() => {
         const dots = document.querySelectorAll('.dot');
         dots.forEach((element, i) => {
             element.addEventListener('click', () => currentSlide(i));
+            setTimeout(()=> currentSlide(i), 1000);
         });
     })();
+    
 
 })();

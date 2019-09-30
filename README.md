@@ -6,6 +6,7 @@ This is the base folder for the shopping cart exercise. You will have all the st
 Clone this repo and run following command for starting the mock server:
 
 ```
+npm run compile:sass (in difeerent terminal)
 npm install
 npm run start
 # or

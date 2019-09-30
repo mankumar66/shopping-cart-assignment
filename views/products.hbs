@@ -1,0 +1,29 @@
+<div id="productContainer">
+    <aside id="filterContainer">
+        {{#each categoryContent}}
+        <div>
+            <a class="filtercategory" onclick="filterSelection('{{id}}')" href="#" id={{id}}>{{name}}</a>
+        </div>
+        {{/each}}
+    </aside>
+    <section>
+        <select id="filterContainerDropdown" onchange="filterSelectionDropdown()">
+            {{#each categoryContent}}
+            <option class="filtercategory" value="{{id}}">{{name}}</option>
+            {{/each}}
+        </select>
+        {{#each productContent}}
+        <div id="prodCategory" class="product {{category}}">
+            <h4>{{name}}</h4>
+            <div id="desc">
+                <img src="{{imageURL}}" alt="image" />
+                <p>{{description}}</p>
+            </div>
+            <div id="priceDesc">
+                <span>MRP Rs.{{price}}</span>
+                <a href="/addToCart/{{ this.id }}">Buy Now <span>@Rs.{{price}}</span></a>
+            </div>
+        </div>
+        {{/each}}
+    </section>
+</div>
