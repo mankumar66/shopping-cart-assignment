@@ -3,7 +3,7 @@
         <h1>Signup</h1>
         <span>We do not share your personal details with anyone.</span>
     </div>
-    <form method="post" action="/home" class="contact-form">
+    <form method="post" action="#" class="contact-form">
         <div id="fNameContainer" class="inputContainer">
             <label for="fName">First name</label>
             <input type="text" id="fName" placeholder="" required />
@@ -22,15 +22,13 @@
         <div id="pswdContainer" class="inputContainer">
             <label for="password">Password</label>
             <input type="password" id="password" placeholder=""
-                oninvalid="this.setCustomValidity('Please enter a 6-10 character password having at least 1 alphabet and 1 number. Allowed special charectors are !@#$%')"
-                pattern="^(?=.*\d+)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%]{6,10}$" required />
+                required />
         </div>
 
         <div id="cnfmPswdContainer" class="inputContainer">
             <label for="cnfmPassword">Confirm Password</label>
             <input type="password" id="cnfmPassword" placeholder=""
-                oninvalid="this.setCustomValidity('Please enter a 6-10 character password having at least 1 alphabet and 1 number. Allowed special charectors are !@#$%')"
-                pattern="^(?=.*\d+)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%]{6,10}$" required />
+                required />
         </div>
 
         <button id='submitButton' type="submit">Signup</button>

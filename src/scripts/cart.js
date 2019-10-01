@@ -1,4 +1,4 @@
-module.exports = function Cart(cart) {
+/* module.exports = function Cart(cart) {
     this.items = cart.items || {};
     this.totalItems = cart.totalItems || 0;
     this.totalPrice = cart.totalPrice || 0;
@@ -19,7 +19,7 @@ module.exports = function Cart(cart) {
         this.totalPrice -= this.items[id].price;
         delete this.items[id];
     };
-    
+
     this.getItems = function() {
         var arr = [];
         for (var id in this.items) {
@@ -27,4 +27,4 @@ module.exports = function Cart(cart) {
         }
         return arr;
     };
-};
+}; */

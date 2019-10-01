@@ -6,14 +6,14 @@
     <form method="post" action="/home" class="contact-form">
         <div id="emailContainer" class="inputContainer">
             <label for="email">Email</label>
-            <input type="email" id="email" placeholder="" required />
+            <input type="email" id="email" name="email" placeholder="" required />
         </div>
 
         <div id="pswdContainer" class="inputContainer">
             <label for="password">Password</label>
-            <input type="password" id="password" placeholder="" 
-            oninvalid="this.setCustomValidity('Please enter a 6-10 character password having at least 1 alphabet and 1 number. Allowed special charectors are !@#$%')"
-            pattern="^(?=.*\d+)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%]{6,10}$" required />
+            <input type="password" id="password" placeholder=""
+            {{!-- oninvalid="this.setCustomValidity('Please enter a 6-10 character password having at least 1 alphabet and 1 number. Allowed special charectors are !@#$%')"
+            pattern="^(?=.*\d+)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%]{6,10}$" --}} required />
         </div>
 
         <button type="submit">Login</button>

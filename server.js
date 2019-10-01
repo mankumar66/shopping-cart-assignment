@@ -16,7 +16,8 @@ app.engine(
 );
 app.set('view engine', 'hbs');
 app.set('views', 'views');
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'src')));
 
 app.use('/', route);

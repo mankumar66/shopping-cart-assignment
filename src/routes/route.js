@@ -4,18 +4,48 @@ var fs = require('fs');
 const path = require('path');
 var Cart = require('../scripts/cart');
 const rootDir = require('../../utils/path');
-var products = JSON.parse(fs.readFileSync(path.join(rootDir, 'src', 'data', 'cartItems.json'), 'utf8'));
+var cartItems =require(path.join(rootDir, 'src', 'data', 'cartItems.json'), 'utf8');
 var bannersJSON = require(path.join(rootDir, 'src', 'server', 'banners', 'index.get.json'));
 var categoriesJSOn = require(path.join(rootDir, 'src', 'server', 'categories', 'index.get.json'));
 var productsJSOn = require(path.join(rootDir, 'src', 'server', 'products', 'index.get.json'));
 
 router.get('/login', (req, res, next) => {
+    console.log(req.body);
     res.render('login', { loginScript: true })
 
 });
 router.use('/addToCart/:id', (req, res, next) => {
-    console.log(req.params.id);
-    res.redirect('/');
+    productId = req.params.id;
+    var product = productsJSOn.filter((item) => {
+        return item.id == productId;
+    });
+    if(cartItems.length !== 0 ){
+         cartItems.forEach((item) => {
+            if(item.id === productId) {
+                console.log(item);
+            console.log("1");
+             item.count++;
+
+            }else  {
+                return cartItems.push({
+            id: product[0].id,
+            count: 1,
+            name: product[0].name,
+            img: product[0].img})}
+
+        })
+    } else cartItems.push({
+            id: product[0].id,
+            count: 1,
+            name: product[0].name,
+            img: product[0].img
+        })
+
+    fs.writeFile(path.join(rootDir, 'src', 'data', 'cartItems.json'), JSON.stringify(cartItems), function(err) {
+        if (err) throw err;
+        console.log('complete');
+    }
+    );
 
 });
 
@@ -37,6 +67,7 @@ router.use('/home', (req, res, next) => {
         }
         else categoriesJSOn = resp;
     }); */
+    console.log(req.body)
     res.render('home', { homeScript: true, sliderContent: bannersJSON, categoryContent: categoriesJSOn })
 });
 
@@ -44,44 +75,47 @@ router.get('/products', (req, res, next) => {
     res.render('products', { productScript: true, productContent: productsJSOn, categoryContent: categoriesJSOn })
 });
 
-router.get('/', function (req, res, next) {
+router.get('/cart', (req, res, next) => {
+    res.render('cart', { cartItems: cartItems})
+
+    /*   if (!req.session.cart) {
+        return res.render('cart', {
+          products: null
+        });
+      }
+      var cart = new Cart(req.session.cart);
+      res.render('cart', {
+        products: cart.getItems(),
+        totalPrice: cart.totalPrice
+      }); */
+});
+
+router.get('/', function(req, res, next) {
     res.render('home', { homeScript: true, sliderContent: bannersJSON, categoryContent: categoriesJSOn })
 });
 
 router.get('/add/:id', function(req, res, next) {
 
-  var productId = req.params.id;
-  var cart = new Cart(req.session.cart ? req.session.cart : {});
-  var product = products.filter(function(item) {
-    return item.id == productId;
-  });
-  cart.add(product[0], productId);
-  req.session.cart = cart;
-  res.redirect('/');
-  inline();
+    /*  var productId = req.params.id;
+     var cart = new Cart(req.session.cart ? req.session.cart : {});
+     var product = products.filter(function(item) {
+       return item.id == productId;
+     });
+     cart.add(product[0], productId);
+     req.session.cart = cart; */
+
+
+    res.redirect('/');
 });
 
-router.get('/cart', function(req, res, next) {
-  if (!req.session.cart) {
-    return res.render('cart', {
-      products: null
-    });
-  }
-  var cart = new Cart(req.session.cart);
-  res.render('cart', {
-    title: 'NodeJS Shopping Cart',
-    products: cart.getItems(),
-    totalPrice: cart.totalPrice
-  });
-});
 
 router.get('/remove/:id', function(req, res, next) {
-  var productId = req.params.id;
-  var cart = new Cart(req.session.cart ? req.session.cart : {});
+    var productId = req.params.id;
+    var cart = new Cart(req.session.cart ? req.session.cart : {});
 
-  cart.remove(productId);
-  req.session.cart = cart;
-  res.redirect('/cart');
+    cart.remove(productId);
+    req.session.cart = cart;
+    res.redirect('/cart');
 });
 
 module.exports = router;

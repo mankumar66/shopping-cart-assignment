@@ -1,4 +1,4 @@
-(() => {
+
     const cnfmPasswordField = document.getElementById('cnfmPswdContainer').innerText;
     const passwordField = document.getElementById('pswdContainer').innerText;
     const submitBtn = document.getElementById('submitButton');
@@ -8,4 +8,3 @@
         }
     };
     submitBtn.addEventListener('click', handleNavigation);
-})();
