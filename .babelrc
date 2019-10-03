@@ -1,0 +1,13 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "debug": true,
+        "targets": {
+          "browsers": ["> 1%", "not ie <= 8"]
+        }
+      }
+    ]
+  ]
+}
