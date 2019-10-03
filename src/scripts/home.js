@@ -15,8 +15,8 @@ const showSlides = (n) => {
     dots[slideIndex - 1].className += " active";
 }
 
-let leftArrow = document.getElementById('arrow-left');
-let rightArrow = document.getElementById('arrow-right');
+let leftArrow = document.getElementById('arrow-left') || {};
+let rightArrow = document.getElementById('arrow-right') || {};
 const changeSlide = (e) => {
     e.target.innerText.toUpperCase() === 'NEXT' ? showSlides(slideIndex += 1) : showSlides(slideIndex += -1);
 }

@@ -38,7 +38,18 @@
     <p>Copyright &copy; 2011-2018 Sabka Bazaar Grocery Supplies Pvt Ltd</p>
   </footer>
   <script src='/dist/bundle.js'></script>
- 
+  {{#if loginScript}}
+  <script src="/scripts/login.js"></script>
+  {{/if}}
+  {{#if registrationScript}}
+  <script src="/scripts/registration.js"></script>
+  {{/if}}
+  {{#if homeScript}}
+  <script src="/scripts/home.js"></script>
+  {{/if}}
+  {{#if productScript}}
+  <script src="/scripts/product.js"></script>
+  {{/if}}
 </body>
 
 </html>

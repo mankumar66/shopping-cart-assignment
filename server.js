@@ -2,8 +2,8 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const expressHbs = require('express-handlebars');
-var route = require('./src/routes/route');
-
+const apiRoute = require('./src/routes/apiRoutes');
+const templateRoute = require('./src/routes/templateRoutes');
 const app = express();
 
 app.engine(
@@ -20,7 +20,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'src')));
 
-app.use('/', route);
+app.use('/', apiRoute);
+app.use(templateRoute);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) =>{
