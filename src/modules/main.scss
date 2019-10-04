@@ -1,0 +1,259 @@
+$desktop-width: 80%;
+$half-width: 50%;
+$full_width: 100%;
+@mixin desktop_width() {
+  @media only screen and (min-width: 770px) {
+    width: $desktop-width;
+  }
+  @media only screen and (max-width: 769px) {
+    width: $full_width;
+  }
+}
+@mixin half_width() {
+  @media only screen and (min-width: 770px) {
+    width: $half-width;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  @media only screen and (max-width: 769px) {
+    width: $full_width;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+@mixin fontStyle {
+  font-weight: 600;
+  font-size: small;
+}
+@mixin sectionStyle {
+  @include desktop_width();
+  margin: auto;
+}
+@mixin separatorStyle {
+  border-bottom: 10px solid transparent;
+  -o-border-image: url(/imageAssets/images/separator.png) 13;
+  border-image: url(/imageAssets/images/separator.png) 13;
+}
+body {
+  font-family: "Dosis", "Arial";
+  font-weight: 400;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+div,
+nav,
+.header_container,
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.header_container {
+  @include sectionStyle();
+  height: 70px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  img {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: 96%;
+    padding: 2px;
+  }
+  .wrapper {
+    -webkit-box-flex: 9;
+    -ms-flex: 9;
+    flex: 9;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    nav {
+      margin-left: 3%;
+      height: 100%;
+      a {
+        color: #717171;
+        padding: 4px;
+        margin: 35% 20% 0 20%;
+        @include fontStyle();
+      }
+    }
+    .cart {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: #eeeeee;
+      padding: 8%;
+      img {
+        width: 15px;
+        height: 25px;
+      }
+    }
+    .rightItems {
+      width: 100px;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      a {
+        font-size: 80%;
+        font-weight: 600;
+        padding: 3px 5px 2px 5px;
+      }
+      .loginItems {
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
+hr {
+  margin: 0;
+  height: 10px;
+  border: 0;
+  -webkit-box-shadow: 0 10px 10px -10px #eeeeee inset;
+  box-shadow: 0 10px 10px -10px #eeeeee inset;
+}
+
+footer {
+  background: #eee;
+  padding: 10px 0;
+  p {
+    @include sectionStyle();
+    @include fontStyle();
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+  #arrow-left,
+  #arrow-right {
+    display: none;
+  }
+  .dots-wrapper {
+    margin: 0 0 -30px 0;
+  }
+  .header_container {
+    height: 50px;
+    .wrapper {
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      justify-content: flex-end;
+    }
+    .cart {
+      height: 100%;
+    }
+    nav,
+    .loginItems {
+      display: none;
+    }
+  }
+  .loginContainer {
+    form {
+      -webkit-box-flex: 2;
+      -ms-flex: 2;
+      flex: 2;
+    }
+    .loginTextContainer span {
+      font-size: x-small;
+    }
+    h1 {
+      font-size: medium;
+    }
+  }
+  #productContainer section select {
+    color: white;
+    display: flex;
+    background: #d00256;
+    padding: 10px;
+  }
+  aside {
+    display: none;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 769px) {
+  section .categoryItem {
+    div {
+      -webkit-box-flex: 2;
+      -ms-flex: 2;
+      flex: 2;
+    }
+    img {
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+    }
+  }
+  footer p {
+    text-align: center;
+  }
+  #productContainer {
+    aside {
+      -webkit-box-flex: auto;
+      -ms-flex: auto;
+      flex: auto;
+    }
+    section {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      div #desc {
+        flex-direction: row;
+      }
+      .product {
+        h4 {
+          margin-bottom: 0;
+          height: 50px;
+        }
+        img {
+          width: 50%;
+        }
+        div:not(#desc){
+          span {
+            display: none;
+          }
+          a {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            span {
+              display: flex;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

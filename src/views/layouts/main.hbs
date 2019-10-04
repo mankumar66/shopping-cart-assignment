@@ -9,12 +9,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Sabka Bazaar</title>
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Dosis:400,600,700" />
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
 <body>
   <header class="header_container">
-    <img src="/static/images/logo.png" alt="Brand logo">
+    <img src="/imageAssets/images/logo.png" alt="Brand logo">
     <div class='wrapper'>
       <nav>
         <a href="/home">Home</a>
@@ -26,7 +25,7 @@
           <a href="/register">Register</a>
         </div>
         <div class='cart'>
-          <img src="/static/images/cart.svg" alt="Brand logo">
+          <img src="/imageAssets/images/cart.svg" alt="Brand logo">
           <a href="/cart">0 items</a>
         </div>
       </div>
@@ -39,16 +38,16 @@
   </footer>
   <script src='/dist/bundle.js'></script>
   {{#if loginScript}}
-  <script src="/scripts/login.js"></script>
+  <script src="/modules/signIn_Up/login.js"></script>
   {{/if}}
   {{#if registrationScript}}
-  <script src="/scripts/registration.js"></script>
+  <script src="/modules/signIn_Up/registration.js"></script>
   {{/if}}
   {{#if homeScript}}
-  <script src="/scripts/home.js"></script>
+  <script src="/modules/home/index.js"></script>
   {{/if}}
   {{#if productScript}}
-  <script src="/scripts/product.js"></script>
+  <script src="/modules/product/index.js"></script>
   {{/if}}
 </body>
 

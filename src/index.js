@@ -1,5 +1,9 @@
-require('./scripts/cart');
-require('./scripts/home');
-require('./scripts/login');
-require('./scripts/product');
-require('./scripts/registration');
+import './modules/main.scss';
+import './modules/home/home.scss';
+import './modules/cart/cart.scss';
+import './modules/product/product.scss';
+import './modules/signIn_Up/signin.scss';
+import './modules/home';
+import './modules/cart';
+import './modules/product';
+import './modules/signIn_Up';
