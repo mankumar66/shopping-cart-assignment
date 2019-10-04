@@ -2,12 +2,12 @@
     <aside id="filterContainer">
         {{#each categoryContent}}
         <div>
-            <a class="filtercategory" onclick="filterSelection('{{id}}')" href="#" id={{id}}>{{name}}</a>
+            <a class="filter-category" href="#" id={{id}}>{{name}}</a>
         </div>
         {{/each}}
     </aside>
     <section>
-        <select id="filterContainerDropdown" onchange="filterSelectionDropdown()">
+        <select id="filterContainerDropdown" >
             {{#each categoryContent}}
             <option class="filtercategory" value="{{id}}">{{name}}</option>
             {{/each}}

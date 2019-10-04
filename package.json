@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --mode development --open",
-    "start": "webpack -p && node server.js",
+    "start": "webpack -d && node server.js",
     "compile:sass": "node-sass sass/style.scss src/css/style.css -w"
   },
   "author": "",
