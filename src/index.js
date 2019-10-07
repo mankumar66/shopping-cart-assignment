@@ -2,6 +2,7 @@
 
 import './modules/main.scss';
 import './modules/home/home.scss';
+import './modules/header/header.scss';
 import './modules/cart/cart.scss';
 import './modules/product/product.scss';
 import './modules/signIn_Up/signin.scss';
@@ -10,5 +11,6 @@ import './modules/signIn_Up/signin.scss';
 
 import './modules/home';
 import './modules/cart';
+import './modules/header';
 import './modules/product';
 import './modules/signIn_Up';

@@ -33,8 +33,8 @@ $full_width: 100%;
 }
 @mixin separatorStyle {
   border-bottom: 10px solid transparent;
-  -o-border-image: url(/imageAssets/images/separator.png) 13;
-  border-image: url(/imageAssets/images/separator.png) 13;
+  -o-border-image: url(/static/images/separator.png) 13;
+  border-image: url(/static/images/separator.png) 13;
 }
 body {
   font-family: "Dosis", "Arial";
@@ -57,75 +57,6 @@ footer {
   display: -ms-flexbox;
   display: flex;
 }
-.header_container {
-  @include sectionStyle();
-  height: 70px;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  img {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    height: 96%;
-    padding: 2px;
-  }
-  .wrapper {
-    -webkit-box-flex: 9;
-    -ms-flex: 9;
-    flex: 9;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    nav {
-      margin-left: 3%;
-      height: 100%;
-      a {
-        color: #717171;
-        padding: 4px;
-        margin: 35% 20% 0 20%;
-        @include fontStyle();
-      }
-    }
-    .cart {
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-      flex-direction: row;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      background-color: #eeeeee;
-      padding: 8%;
-      img {
-        width: 15px;
-        height: 25px;
-      }
-    }
-    .rightItems {
-      width: 100px;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
-      a {
-        font-size: 80%;
-        font-weight: 600;
-        padding: 3px 5px 2px 5px;
-      }
-      .loginItems {
-        -webkit-box-pack: end;
-        -ms-flex-pack: end;
-        justify-content: flex-end;
-      }
-    }
-  }
-}
-
 hr {
   margin: 0;
   height: 10px;

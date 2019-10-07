@@ -38,7 +38,10 @@ let dots = document.querySelectorAll(".dot");
 if (dots) {
   dots.forEach((element, i) => {
     element.addEventListener("click", () => currentSlide(i));
-    setTimeout(() => currentSlide(i), 1000);
+    setTimeout(() => currentSlide(i), 5000);
   });
 }
+
 showSlides(slideIndex);
+
+
