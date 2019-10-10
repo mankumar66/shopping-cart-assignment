@@ -27,6 +27,11 @@ $full_width: 100%;
   font-weight: 600;
   font-size: small;
 }
+@mixin buttonStyle {
+  border: none;
+  color: white;
+  background: #d00256;
+}
 @mixin sectionStyle {
   @include desktop_width();
   margin: auto;
@@ -151,7 +156,7 @@ footer {
     }
     section {
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      div #desc {
+      div .desc {
         flex-direction: row;
       }
       .product {
@@ -162,11 +167,11 @@ footer {
         img {
           width: 50%;
         }
-        div:not(#desc){
+        div:not(.desc) {
           span {
             display: none;
           }
-          a {
+          button {
             width: 100%;
             display: flex;
             justify-content: center;

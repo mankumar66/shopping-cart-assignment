@@ -7,21 +7,21 @@
         {{/each}}
     </aside>
     <section>
-        <select id="filterContainerDropdown" >
+        <select name="dropdown" id="filterContainerDropdown" >
             {{#each categoryContent}}
-            <option class="filtercategory" value="{{id}}">{{name}}</option>
+            <option label="{{name}}" class="filtercategory" value="{{id}}">{{name}}</option>
             {{/each}}
         </select>
         {{#each productContent}}
-        <div id="prodCategory" class="product {{category}}">
+        <div class="prodCategory" class="product {{category}}">
             <h4>{{name}}</h4>
-            <div id="desc">
+            <div class="desc">
                 <img src="{{imageURL}}" alt="image" />
                 <p>{{description}}</p>
             </div>
-            <div id="priceDesc">
+            <div class="priceDesc">
                 <span>MRP Rs.{{price}}</span>
-                <a href="/addToCart/{{ this.id }}">Buy Now <span>@Rs.{{price}}</span></a>
+                <button id="{{this.id}}" class="addToCart" >Buy Now <span>@Rs.{{price}}</span></button>
             </div>
         </div>
         {{/each}}

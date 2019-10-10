@@ -3,7 +3,8 @@ const express = require('express'),
     banners = require('./../mockResponse/banners/index.get.json'),
     categories = require('./../mockResponse/categories/index.get.json'),
     products = require('./../mockResponse/products/index.get.json'),
-    addToCart = require('./../mockResponse/addToCart/index.post.json');
+    addToCart = require('./../mockResponse/addToCart/index.post.json'),
+    Cart = require('../modules/cart');
 
 apiRouter.get("/banners", (req, res) => {
     res.json(banners);
@@ -17,8 +18,30 @@ apiRouter.get("/products", (req, res) => {
     res.json(products);
 });
 
+
+apiRouter.get("/cart", (req, res) => {
+    res.json(addToCart.cartItems);
+});
+
+apiRouter.post("/remove", (req, res, next) => {
+    var productId = req.body.id;
+    var cart = new Cart(addToCart.cartItems);
+    console.log(productId);
+    cart.remove(productId);
+    addToCart.cartItems = cart;
+    res.json(addToCart.cartItems);
+});
+
 apiRouter.post("/addToCart", (req, res) => {
+    let productId = req.body.id;
+    let cart = new Cart(addToCart.cartItems);
+    let product = products.filter(function (item) {
+        return item.id == productId;
+    });
+    cart.add(product[0], productId);
+    addToCart.cartItems = cart;
     res.json(addToCart);
 });
+
 
 module.exports = apiRouter;

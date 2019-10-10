@@ -12,17 +12,74 @@
       </div>
       <div class='cart' id="cart--js">
         <img src="/static/images/cart.svg" alt="Brand logo">
-        {{# if session.cart.totalItems }}
-        <span>{{session.cart.totalItems}} items</span>
+        {{# if cart.totalItems}}
+        <span><span id="itemCount">{{cart.totalItems}} </span> items</span>
         {{ else }}
-        <span>0 items</span>
+        <span><span id="itemCount">0 </span> items</span>
         {{/if}}
+        
       </div>
     </div>
   </div>
 </header>
+
 <div id="overlay--js" class="overlay">
   <div class="cartContainer">
-    svsbfjshnkjmn
+    <div class="cartHeader">
+      {{# if cart.totalItems}}
+      <h4>My Cart <span>({{cart.totalItems}} item)</span></h4>
+      {{ else }}
+      <h4>My Cart</h4>
+      {{/if}}
+    </div>
+
+    {{# if cart.items }}
+    <div class="cartItems">
+      <ul class="list-group">
+        {{#each cart.items }}
+        <li class="list-group-item">
+          <img src="{{this.item.imageURL}}" alt="{{this.item.name}}" />
+          <div id="itemDetail">
+            <strong>{{ this.item.name }}</strong>
+            <div id="{{this.item.id}}">
+              <button class="minusBtn--js">-</button>
+              <span class="">{{ this.quantity }}</span>
+              <button class="plusBtn--js">+</button>
+              <span>X</span>
+              <span>Rs.{{this.item.price}}</span>
+            </div>
+          </div>
+          <div class="itemCost">
+            <span>Rs.{{this.price}}</span>
+          </div>
+        </li>
+        {{/each}}
+        <div class="lowestPriceBranding">
+          <img src="/static/images/lowest-price.png" alt="lowest price image" />
+          <span>You won't find it cheaper anywhere</span>
+        </div>
+      </ul>
+      <div class="cartButton">
+        <span id="promoSpan">
+          Promo code can be applied on product page
+        </span>
+        <button>
+          <span>Proceed to Checkout</span>
+          <span>Rs.{{cart.totalPrice}} ></span>
+        </button>
+      </div>
+    </div>
+    {{ else }}
+    <div class="cartEmpty">
+      <div class="cartEmptyText">
+        <h4>No items in your cart</h4>
+        <span>Your favourite items are just a click away</span>
+      </div>
+      <div class="cartButton">
+        <button>Start Shopping</button>
+      </div>
+    </div>
+
+    {{/if}}
   </div>
 </div>

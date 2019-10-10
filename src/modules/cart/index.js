@@ -15,6 +15,7 @@ module.exports = function Cart(cart) {
     };
 
     this.remove = function(id) {
+        console.log("test", id);
         this.totalItems -= this.items[id].quantity;
         this.totalPrice -= this.items[id].price;
         delete this.items[id];

@@ -1,3 +1,4 @@
+import constants from './../../utils/locales/en';
 let slideIndex = 1;
 const showSlides = n => {
   let i;
@@ -24,7 +25,7 @@ const showSlides = n => {
 let leftArrow = document.getElementById("arrow-left");
 let rightArrow = document.getElementById("arrow-right");
 const changeSlide = e => {
-  e.target.innerText.toUpperCase() === "NEXT"
+  e.target.innerText.toUpperCase() === constants.NEXT
     ? showSlides((slideIndex += 1))
     : showSlides((slideIndex += -1));
 };

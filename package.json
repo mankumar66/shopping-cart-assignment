@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --mode development --open",
     "start": "webpack -d && node server.js",
-    "compile:sass": "node-sass sass/style.scss src/css/style.css -w"
+    "compile:sass": "node-sass src/modules/main.scss src/css/style.css -w"
   },
   "author": "",
   "license": "MIT",
@@ -14,7 +14,6 @@
     "body-parser": "1.19.0",
     "express": "4.17.1",
     "express-handlebars": "3.1.0",
-    "express-session": "^1.16.2",
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {

@@ -1,3 +1,4 @@
+const Handlebars = require("handlebars");
 const filterSelection = category => {
   let productList, i;
   productList = document.getElementsByClassName("product");
@@ -29,9 +30,31 @@ if (filterContainer) {
     });
   }
 }
-
+const addToCart = (e) => {
+  let data = { "id": e.currentTarget.id };
+  fetch("http://localhost:3000/api/addToCart", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }).then(res => res.json())
+    .then(res => {
+      if (document.getElementById("itemCount")) {
+        document.getElementById("itemCount").innerText = res.cartItems.totalItems;
+        window.location.href = "/products";
+      }
+    })
+    .catch(err => console.log(err))
+}
 if (document.getElementById("filterContainerDropdown")) {
-  var filterContainerDD = document.getElementById("filterContainerDropdown");
-  filterContainerDD.addEventListener("click", (e) => filterSelection(e.target.value));
+  let filterContainerDD = document.getElementById("filterContainerDropdown");
+  filterContainerDD.addEventListener("click", e => filterSelection(e.target.value));
+}
+if (document.getElementsByClassName("addToCart")) {
+  let addToCartButton = document.getElementsByClassName("addToCart");
+  for (let i = 0; i < addToCartButton.length; i++) {
+    addToCartButton[i].addEventListener("click", e => addToCart(e));
+  }
 }
 filterSelection("all");

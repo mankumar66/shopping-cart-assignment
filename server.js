@@ -4,8 +4,7 @@ const path = require("path"),
     expressHbs = require("express-handlebars"),
     apiRoute = require("./src/routes/apiRoutes"),
     templateRoute = require("./src/routes/templateRoutes"),
-    app = express(),
-    session = require("express-session");
+    app = express();
     
 // hbs view
 app.engine(
@@ -17,25 +16,14 @@ app.engine(
         extname: "hbs"
     })
 );
-//.registerPartials(__dirname + "/src/views/partials");
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "/src/views"));
 
 
 // middleware
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "src")));
-app.use(session({
-    secret: "secret",
-    resave: false,
-    saveUninitialized: true
-}))
-
-// res.locals is an object passed to hbs engine
-app.use(function(req, res, next) {
-    res.locals.session = req.session;
-    next();
-});
 
 app.use("/api", apiRoute);
 app.use("/", templateRoute);
