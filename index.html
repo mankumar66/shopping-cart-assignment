@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Sabka Bazaar is the largest online grocery supermarket in India">
+  <meta name="keywords" content="Sabka, Bazaar">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sabka Bazaar</title>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Dosis:400,600,700" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+  <header class="header_container">
+    <img src="/static/images/logo.png" alt="Brand logo">
+    <div class='wrapper'>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+      </nav>
+      <div class='rightItems'>
+        <div class='loginItems'>
+          <a href="#" onClick=loadLoginForm()>SignIn </a>
+          <a href="#">Register</a>
+        </div>
+        <div class='cart'>
+          <img src="/static/images/cart.svg" alt="Brand logo">
+          <a href="#">0 items</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <hr />
+  <section id="home-section" class= "page">
+    <script id="slider-template" type="x-handlebars-template">​
+        {{#each this}}
+      <div class="slider">
+          <img data-index="{{id}}" class="slide" alt="{{bannerImageAlt}}" src="{{bannerImageUrl}}" />
+      </div>
+        {{/each}}
+      <a class="arrow-left" href="javascript:void(0);"></a>
+      <a class="arrow-right" href="javascript:void(0);"></a>
+      <div class="dots-wrapper"></div>
+    </script>
+  </section>
+  <section id="login" class= "page">
+      <div >
+            <h3>Single product view</h3>
+      </div>
+  </section>
+  <script src="outsideResources/handlebar.min.js"></script>
+  <script src="src/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+body {
+  font-family: "Dosis", "Arial";
+  font-weight: 400;
+  font-size: 16px;
+  margin: 0;
+  padding: 0; }
+  body a {
+    text-decoration: none;
+    color: black; }
+
+div,
+nav, .header_container {
+  display: flex; }
+
+.header_container {
+  width: 70%;
+  margin: auto;
+  height: 70px;
+  display: flex;
+  flex-direction: row; }
+  .header_container img {
+    flex: 1;
+    height: 96%;
+    padding: 2px; }
+  .header_container .wrapper {
+    flex: 9;
+    justify-content: space-between; }
+    .header_container .wrapper nav {
+      margin-left: 3%;
+      height: 100%; }
+      .header_container .wrapper nav a {
+        padding: 4px;
+        margin: 35% 20% 0 20%; }
+    .header_container .wrapper .cart {
+      flex-direction: row;
+      align-items: center;
+      background-color: #eeeeee;
+      padding: 8%; }
+      .header_container .wrapper .cart img {
+        width: 15px;
+        height: 25px; }
+    .header_container .wrapper .rightItems {
+      width: 100px;
+      flex-direction: column;
+      justify-content: space-between; }
+      .header_container .wrapper .rightItems a {
+        font-size: 80%;
+        font-weight: 600;
+        padding: 2px 0 2px 10px; }
+      .header_container .wrapper .rightItems .loginItems {
+        justify-content: flex-end; }
+
+svg g path {
+  fill: red; }
+
+hr {
+  margin-top: 0;
+  height: 10px;
+  border: 0;
+  box-shadow: 0 10px 10px -10px #eeeeee inset; }
