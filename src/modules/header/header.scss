@@ -74,7 +74,7 @@ ul {
         justify-content: space-between;
       }
     }
-    .cartEmpty {
+    #cartEmpty {
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -104,6 +104,9 @@ ul {
         justify-content: center;
       }
     }
+    #listItemContainer{
+      height: calc(92% - 10px);
+    }
     ul {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -115,7 +118,6 @@ ul {
       -webkit-box-direction: normal;
       -ms-flex-direction: column;
       flex-direction: column;
-      height: calc(92% - 10px);
       margin: 0;
       .lowestPriceBranding {
         -webkit-box-align: center;
@@ -136,7 +138,7 @@ ul {
         }
       }
     }
-    .cartItems {
+    #cartItems {
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
       -ms-flex-direction: column;

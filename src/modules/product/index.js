@@ -1,4 +1,3 @@
-const Handlebars = require("handlebars");
 const filterSelection = category => {
   let productList, i;
   productList = document.getElementsByClassName("product");
@@ -30,8 +29,8 @@ if (filterContainer) {
     });
   }
 }
-const addToCart = (e) => {
-  let data = { "id": e.currentTarget.id };
+export const addToCart = (id) => {
+  let data = { "id": id };
   fetch("http://localhost:3000/api/addToCart", {
     method: 'POST',
     headers: {
@@ -42,7 +41,6 @@ const addToCart = (e) => {
     .then(res => {
       if (document.getElementById("itemCount")) {
         document.getElementById("itemCount").innerText = res.cartItems.totalItems;
-        window.location.href = "/products";
       }
     })
     .catch(err => console.log(err))
@@ -54,7 +52,7 @@ if (document.getElementById("filterContainerDropdown")) {
 if (document.getElementsByClassName("addToCart")) {
   let addToCartButton = document.getElementsByClassName("addToCart");
   for (let i = 0; i < addToCartButton.length; i++) {
-    addToCartButton[i].addEventListener("click", e => addToCart(e));
+    addToCartButton[i].addEventListener("click", e => addToCart(e.currentTarget.id));
   }
 }
 filterSelection("all");

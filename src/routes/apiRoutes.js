@@ -18,7 +18,6 @@ apiRouter.get("/products", (req, res) => {
     res.json(products);
 });
 
-
 apiRouter.get("/cart", (req, res) => {
     res.json(addToCart.cartItems);
 });
@@ -29,6 +28,7 @@ apiRouter.post("/remove", (req, res, next) => {
     console.log(productId);
     cart.remove(productId);
     addToCart.cartItems = cart;
+    console.log(addToCart.cartItems);
     res.json(addToCart.cartItems);
 });
 
