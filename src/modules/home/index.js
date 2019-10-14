@@ -1,9 +1,13 @@
 import constants from './../../utils/locales/en';
+
+let leftArrow = document.getElementById("arrow-left");
+let rightArrow = document.getElementById("arrow-right");
 let slideIndex = 1;
+let slides = document.getElementsByClassName("slider");
+let dots = document.getElementsByClassName("dot");
+
 const showSlides = n => {
   let i;
-  let slides = document.getElementsByClassName("slider");
-  let dots = document.getElementsByClassName("dot");
   if (slides && dots) {
     if (n > slides.length) {
       slideIndex = 1;
@@ -22,27 +26,31 @@ const showSlides = n => {
   }
 };
 
-let leftArrow = document.getElementById("arrow-left");
-let rightArrow = document.getElementById("arrow-right");
+/* function to change slider on dot click */
+const currentSlide = n => {
+  showSlides((slideIndex = n + 1));
+};
+
+/* function to change slide on slider Prev/Next button */
 const changeSlide = e => {
   e.target.innerText.toUpperCase() === constants.NEXT
     ? showSlides((slideIndex += 1))
     : showSlides((slideIndex += -1));
 };
+
+/* Event binding for slider Prev/Next navigation */
 if (leftArrow) leftArrow.addEventListener("click", changeSlide);
 if (rightArrow) rightArrow.addEventListener("click", changeSlide);
-const currentSlide = n => {
-  showSlides((slideIndex = n + 1));
-};
 
+/* Event binding for slider dots */
 let dots = document.querySelectorAll(".dot");
 if (dots) {
-  dots.forEach((element, i) => {
-    element.addEventListener("click", () => currentSlide(i));
-    setTimeout(() => currentSlide(i), 5000);
-  });
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].addEventListener("click", () => currentSlide(i));
+  }
 }
 
+/* Default slider render */
 showSlides(slideIndex);
 
 

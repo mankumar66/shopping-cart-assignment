@@ -4,7 +4,9 @@ const express = require('express'),
     api = require('../helper/xhr'),
     baseUrl = 'http://localhost:3000',
     constants = require('./../utils/locales/en');
-
+    
+    
+/* GET requests */
 templateRoute.get(['/', '/home'], (req, res, next) => {
     Promise.all([
         api(`${baseUrl}/api/banners`),

@@ -6,6 +6,7 @@ const express = require('express'),
     addToCart = require('./../mockResponse/addToCart/index.post.json'),
     Cart = require('../modules/cart');
 
+/* GET requests */
 apiRouter.get("/banners", (req, res) => {
     res.json(banners);
 });
@@ -22,13 +23,12 @@ apiRouter.get("/cart", (req, res) => {
     res.json(addToCart.cartItems);
 });
 
+/* POST requests */
 apiRouter.post("/remove", (req, res, next) => {
     var productId = req.body.id;
     var cart = new Cart(addToCart.cartItems);
-    console.log(productId);
     cart.remove(productId);
     addToCart.cartItems = cart;
-    console.log(addToCart.cartItems);
     res.json(addToCart.cartItems);
 });
 

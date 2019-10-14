@@ -1,5 +1,7 @@
 const cnfmPasswordField = document.getElementById("cnfmPswdContainer");
 const passwordField = document.getElementById("pswdContainer");
+const submitBtn = document.getElementById("submitButton");
+
 if (cnfmPasswordField && passwordField) {
   const cnfmPasswordFieldText = cnfmPasswordField.innerText;
   const passwordFieldText = passwordField.innerText;
@@ -8,6 +10,6 @@ if (cnfmPasswordField && passwordField) {
       alert("not matched");
     }
   };
-  const submitBtn = document.getElementById("submitButton");
+  
   if (submitBtn) submitBtn.addEventListener("click", handleNavigation);
 }
