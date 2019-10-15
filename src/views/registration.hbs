@@ -3,34 +3,34 @@
         <h1>{{constants.SIGN_UP_LABEL}}</h1>
         <span>{{constants.SIGN_UP_BRANDING_LABEL}}</span>
     </div>
-    <form method="post" action="#" class="contact-form">
+    <form autocomplete="off" id="regForm" method="post" action="/home" class="contact-form">
         <div id="fNameContainer" class="inputContainer">
             <label for="fName">{{constants.FIRST_NAME_LABEL}}</label>
-            <input type="text" id="fName" placeholder="" required />
+            <input type="text" id="fName" placeholder="" name="first name" oninput="this.className = ''" />
         </div>
 
         <div id="lNameContainer" class="inputContainer">
             <label for="lName">{{constants.LAST_NAME_LABEL}}</label>
-            <input type="text" id="lName" placeholder="" required />
+            <input type="text" id="lName" placeholder="" name="last name" oninput="this.className = ''" />
         </div>
 
         <div id="emailContainer" class="inputContainer">
             <label for="email">{{constants.EMAIL_LABEL}}</label>
-            <input type="email" id="email" placeholder="" required />
+            <input type="email" id="email" placeholder="" name="email" oninput="this.className = ''" />
         </div>
 
         <div id="pswdContainer" class="inputContainer">
             <label for="password">{{constants.PASSWORD_LABEL}}</label>
-            <input type="password" id="password" placeholder=""
-                required />
+            <input type="password" id="password" placeholder="" name="password" oninput="this.className = ''" />
         </div>
 
         <div id="cnfmPswdContainer" class="inputContainer">
             <label for="cnfmPassword">{{constants.CNFM_PASSWORD_LABEL}}</label>
-            <input type="password" id="cnfmPassword" placeholder=""
-                required />
+            <input type="password" id="cnfmPassword" placeholder="" oninput="this.className = ''" />
         </div>
-
-        <button id='submitButton' type="submit">{{constants.SIGN_UP_LABEL}}</button>
+        <div id="errorContainer"></div>
+        <button id="submitButton" type="button">{{constants.SIGN_UP_LABEL}}</button>
     </form>
 </div>
+
+                

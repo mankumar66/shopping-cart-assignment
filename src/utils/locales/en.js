@@ -28,6 +28,8 @@ module.exports = {
     FAV_ITEM_LABEL: "Your favourite items are just a click away",
     START_SHOPPING_LABEL: "Start Shopping",
     GET_METHOD: "GET",
-    POST_METHOD: "POST"
+    POST_METHOD: "POST",
+    PASSWORD_MISMATCH_ERROR: "Password and Confirm password must be same.",
+    PASSWORD_VALIDATION_ERROR: "Password must contain at least one number, one lowercase, one uppercase and an special charectors from !.*\ and allowed min-length is 6. "
 }
  

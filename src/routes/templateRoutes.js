@@ -41,5 +41,11 @@ templateRoute.get('/register', (req, res, next) => {
     .catch((err) => res.send(constants.API_ERROR));
 });
 
+/* Post requests */
+templateRoute.post(['/home'], (req, res, next) => {
+    console.log(req.body);
+    res.redirect('/home');
+});
+
 module.exports = templateRoute;
 

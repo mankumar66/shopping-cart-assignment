@@ -35,6 +35,12 @@
       -ms-flex: 2;
       flex: 2;
     }
+    #errorContainer{
+      color: $RED;
+      @media only screen and (max-width: 600px) {
+        font-size: small;
+      }
+    }
     .inputContainer {
       margin-bottom: 8px;
       position: relative;
@@ -48,6 +54,9 @@
         &:focus {
           outline: none !important;
           border-bottom: solid 1.5px $SKY_BLUE;
+        }
+        &.invalid {
+          background-color: $AMBER;
         }
       }
       label {
@@ -83,7 +92,6 @@
       color: $WHITE;
       padding: 10px;
       margin-top: 25px;
-      border: none;
       cursor: pointer;
       width: $FULL_WIDTH;;
     }

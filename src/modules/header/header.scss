@@ -56,8 +56,6 @@ ul {
         color: $BLACK;
       }
       button {
-        border: none;
-        background: none;
         color: $WHITE;
         padding: 10px 20px;
       }
@@ -319,8 +317,7 @@ ul {
       justify-content: space-between;
       a,
       span {
-        font-size: small;
-        font-weight: 600;
+        @include fontStyle();
         padding: 3px 5px 2px 5px;
       }
       .loginItems {

@@ -19,11 +19,13 @@
       display: none;
     }
     div {
-      padding: 10px;
       border-bottom: 1px solid #98949430;
       a {
         color: $MEDIUM_GRAY;
         font-size: medium;
+        text-align: left;
+        width: $FULL_WIDTH;
+        padding: 10px;
         &.active {
           color: $PINK;
         }

@@ -28,7 +28,6 @@
   font-size: small;
 }
 @mixin buttonStyle {
-  border: none;
   color: $WHITE;
   background: $PINK;
 }
@@ -68,6 +67,12 @@ hr {
   border: 0;
   -webkit-box-shadow: 0 10px 10px -10px $GRAY inset;
   box-shadow: 0 10px 10px -10px $GRAY inset;
+}
+
+button {
+    outline: none;
+    border: none;
+    background: none;
 }
 
 footer {

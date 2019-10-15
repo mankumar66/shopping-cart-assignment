@@ -57,7 +57,7 @@ if (addToCartButton) {
 /* Api post call on Buy Now */
 const addToCart = (id) => {
   let data = { "id": id };
-  getPostRequest(apiConst.ADD_TO_CART_API,{method: constants.POST_METHOD, data:data})
+  getPostRequest(apiConst.ADD_TO_CART_API, { method: constants.POST_METHOD, data: data })
     .then(res => {
       if (document.getElementById("itemCount")) {
         document.getElementById("itemCount").innerText = res.cartItems.totalItems;
@@ -67,4 +67,6 @@ const addToCart = (id) => {
 }
 
 /* Load complete products data */
-filterSelection("all");
+if (document.getElementById("#productContainer")) {
+  filterSelection("all");
+}
