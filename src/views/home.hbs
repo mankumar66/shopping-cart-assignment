@@ -1,7 +1,7 @@
 <section>
     <div id="sliderContainer">
         {{#each sliderContent}}
-        <div class="slider">
+        <div tabindex="0" class="slider">
             <img data-index="{{id}}" class="slide" alt="{{bannerImageAlt}}" src="{{bannerImageUrl}}" />
         </div>
         {{/each}}
@@ -9,7 +9,7 @@
         <a id="arrow-right" href="#">{{constants.NEXT_LABEL}}</a>
         <div class="dots-wrapper">
             {{#each sliderContent}}
-            <span class="dot"></span>
+            <span tabindex="0" class="dot"></span>
             {{/each}}
         </div>
     </div>
@@ -17,11 +17,11 @@
 <section>
     {{#each categoryContent }}
     <div class="categoryItem">
-        <img data-index="{{id}}" class="category" alt="{{key}}" src="{{imageUrl}}" />
+        <img tabindex="0" data-index="{{id}}" class="category" alt="{{key}}" src="{{imageUrl}}" />
         <div>
-            <span>{{name}}</span>
-            <span>{{description}}</span>
-            <span>Explore {{key}}</span>
+            <span tabindex="0">{{name}}</span>
+            <span tabindex="0">{{description}}</span>
+            <span><a href="">Explore {{key}}</a></span>
         </div>
     </div>
     {{/each}}

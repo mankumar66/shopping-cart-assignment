@@ -1,5 +1,5 @@
 <header class="header_container">
-  <img src="/static/images/logo.png" alt="Brand logo">
+  <img tabindex="0" src="/static/images/logo.png" alt="Brand logo">
   <div class='wrapper'>
     <nav>
       <a href="/home">{{constants.HOME_LABEL}}</a>
@@ -10,7 +10,7 @@
         <a href="/login">{{constants.SIGN_IN_LABEL}}</a>
         <a href="/register">{{constants.REGISTER_LABEL}}</a>
       </div>
-      <div class='cart' id="cart--js">
+      <div tabindex="0" class='cart' id="cart--js">
         <img src="/static/images/cart.svg" alt="Brand logo">
         {{# if cart.totalItems}}
         <span><span id="itemCount">{{cart.totalItems}} </span> {{constants.ITEM_LABEL}}</span>

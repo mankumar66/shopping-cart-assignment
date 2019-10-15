@@ -14,13 +14,13 @@
         </select>
         {{#each productContent}}
         <div class="product {{category}}">
-            <h4>{{name}}</h4>
+            <h4 tabindex="0" >{{name}}</h4>
             <div class="desc">
-                <img src="{{imageURL}}" alt="image" />
-                <p>{{description}}</p>
+                <img tabindex="0" src="{{imageURL}}" alt="image" />
+                <p tabindex="0" >{{description}}</p>
             </div>
             <div class="priceDesc">
-                <span>MRP Rs.{{price}}</span>
+                <span tabindex="0" >MRP Rs.{{price}}</span>
                 <button id="{{this.id}}" class="addToCart" >Buy Now <span>@Rs.{{price}}</span></button>
             </div>
         </div>
