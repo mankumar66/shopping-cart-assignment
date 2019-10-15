@@ -1,18 +1,4 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-
-# Bower dependency directory (https://bower.io/)
-bower_components
-
 # Dependency directories
 node_modules/
-
-# Optional npm cache directory
-.npm
-
-# dotenv environment variables file
-.env
 
 

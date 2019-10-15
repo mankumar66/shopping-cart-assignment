@@ -33,7 +33,7 @@ const currentSlide = n => {
 
 /* function to change slide on slider Prev/Next button */
 const changeSlide = e => {
-  e.target.innerText.toUpperCase() === constants.NEXT
+  e.target.innerText.toUpperCase() === constants.NEXT_LABEL
     ? showSlides((slideIndex += 1))
     : showSlides((slideIndex += -1));
 };
@@ -43,7 +43,6 @@ if (leftArrow) leftArrow.addEventListener("click", changeSlide);
 if (rightArrow) rightArrow.addEventListener("click", changeSlide);
 
 /* Event binding for slider dots */
-let dots = document.querySelectorAll(".dot");
 if (dots) {
   for (let i = 0; i < dots.length; i++) {
     dots[i].addEventListener("click", () => currentSlide(i));

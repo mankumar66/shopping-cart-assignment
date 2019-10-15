@@ -9,15 +9,23 @@
     -ms-flex: 1;
     flex: 1;
     padding: 0 0 0 10px;
-    background: #eee;
+    background: $GRAY;
+    @media only screen and (max-width: 768px) {
+      -webkit-box-flex: auto;
+      -ms-flex: auto;
+      flex: auto;
+    }
+    @media only screen and (max-width: 600px) {
+      display: none;
+    }
     div {
       padding: 10px;
       border-bottom: 1px solid #98949430;
       a {
-        color: #989494;
+        color: $MEDIUM_GRAY;
         font-size: medium;
         &.active {
-          color: #d00256;
+          color: $PINK;
         }
       }
     }
@@ -26,8 +34,19 @@
     display: -ms-grid;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    @media only screen and (max-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
     select {
       display: none;
+      @media only screen and (max-width: 600px) {
+        color: $WHITE;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        background: $PINK;
+        padding: 10px;
+      }
     }
     .product {
       padding: 10px;
@@ -38,28 +57,35 @@
       div {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
       }
       .priceDesc {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-                flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
       }
       img {
-        width: 100%;
+        width: $FULL_WIDTH;;
+        @media only screen and (max-width: 768px) {
+          width: $HALF_WIDTH;
+        }
       }
       p {
-        background: #eee;
+        background: $GRAY;
         padding: 5px;
         @include fontStyle();
       }
       h4 {
         margin-bottom: 0;
         height: 70px;
+        @media only screen and (max-width: 768px) {
+          margin-bottom: 0;
+          height: 50px;
+        }
       }
-       div:not(.desc) {
+      div:not(.desc) {
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
@@ -72,16 +98,44 @@
         padding: 5px;
         border-bottom: 1px solid gray;
         border-bottom-style: dashed;
+        @media only screen and (max-width: 768px) {
+          span{
+            display: none;
+          }
+        }
         button {
-          background: #d00256;
+          background: $PINK;
           padding: 5px 15px;
-          color: white;
+          color: $WHITE;
           border: none;
           span {
             display: none;
+            @media only screen and (max-width: 768px) {
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+            }
+          }
+          @media only screen and (max-width: 768px) {
+            width: $FULL_WIDTH;;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            padding: 10px;
           }
         }
       }
     }
+  }
+}
+@media only screen and (max-width: 768px) {
+  #productContainer section div .desc {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
   }
 }

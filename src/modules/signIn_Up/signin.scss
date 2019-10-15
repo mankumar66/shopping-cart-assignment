@@ -3,6 +3,11 @@
 .loginContainer {
   margin: auto;
   @include half_width();
+  @media only screen and (max-width: 600px) {
+    h1 {
+      font-size: medium;
+    }
+  }
   .loginTextContainer {
     -webkit-box-flex: 1;
     -ms-flex: 1;
@@ -14,6 +19,9 @@
     flex-direction: column;
     span {
       @include fontStyle();
+      @media only screen and (max-width: 600px) {
+        font-size: x-small;
+      }
     }
   }
   form {
@@ -22,24 +30,29 @@
     flex: 1;
     padding: 10px 10px 0 40px;
     margin-bottom: 15px;
+    @media only screen and (max-width: 600px) {
+      -webkit-box-flex: 2;
+      -ms-flex: 2;
+      flex: 2;
+    }
     .inputContainer {
       margin-bottom: 8px;
       position: relative;
       input {
         border: none;
-        border-bottom: solid 1.5px #ccc;
+        border-bottom: solid 1.5px darken( $GRAY, 15% );
         font-size: 16px;
         outline: 0;
         padding: 20px 0 10px;
-        width: 100%;
+        width: $FULL_WIDTH;;
         &:focus {
           outline: none !important;
-          border-bottom: solid 1.5px #50dae3;
+          border-bottom: solid 1.5px $SKY_BLUE;
         }
       }
       label {
         font-size: 16px;
-        color: #ccc;
+        color: darken( $GRAY, 15% );
         position: absolute;
         -webkit-transform-origin: top left;
         -ms-transform-origin: top left;
@@ -60,19 +73,19 @@
           -webkit-transform: translate(0, 4px) scale(0.95);
           -ms-transform: translate(0, 4px) scale(0.95);
           transform: translate(0, 4px) scale(0.95);
-          color: #50dae3;
+          color: $SKY_BLUE;
           margin: -10px 0 0 0;
         }
       }
     }
     button {
-      background-color: #d00256;
-      color: white;
+      background-color: $PINK;
+      color: $WHITE;
       padding: 10px;
       margin-top: 25px;
       border: none;
       cursor: pointer;
-      width: 100%;
+      width: $FULL_WIDTH;;
     }
   }
 }

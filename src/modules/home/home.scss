@@ -9,9 +9,9 @@ section {
     -ms-flex-align: center;
     align-items: center;
     .slider {
-      width: $full_width;
+      width: $FULL_WIDTH;
       img {
-        width: $full_width;
+        width: $FULL_WIDTH;
         -o-object-fit: cover;
         object-fit: cover;
       }
@@ -20,15 +20,21 @@ section {
       cursor: pointer;
       position: absolute;
       background: rgba(113, 113, 113, 0.6196078431372549);
-      color: white;
+      color: $WHITE;
       font-size: small;
       padding: 8px;
 
       &#arrow-left {
         left: 0;
+        @media only screen and (max-width: 600px) {
+          display: none;
+        }
       }
       &#arrow-right {
         right: 0;
+        @media only screen and (max-width: 600px) {
+          display: none;
+        }
       }
     }
     .dots-wrapper {
@@ -37,20 +43,23 @@ section {
       -ms-flex-pack: center;
       justify-content: center;
       bottom: 10px;
-      width: 100%;
+      width: $FULL_WIDTH;;
+      @media only screen and (max-width: 600px) {
+        margin: 0 0 -30px 0;
+      }
       span {
         cursor: pointer;
         height: 5px;
         width: 5px;
         margin: 0 10px;
-        background-color: #989494;
+        background-color: $MEDIUM_GRAY;
         border-radius: 50%;
         -webkit-transition: background-color 0.6s ease;
         -o-transition: background-color 0.6s ease;
         transition: background-color 0.6s ease;
         &.active,
         &:hover {
-          background-color: black;
+          background-color: $BLACK;
         }
       }
     }
@@ -58,6 +67,7 @@ section {
 
   .categoryItem {
     @include separatorStyle();
+    margin: auto;
     img {
       -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -66,6 +76,11 @@ section {
       height: 200px;
       -o-object-fit: contain;
       object-fit: contain;
+      @media only screen and (max-width: 768px) {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+      }
     }
     div {
       -webkit-box-orient: vertical;
@@ -76,6 +91,11 @@ section {
       -ms-flex: 2.5;
       flex: 2.5;
       margin: auto;
+      @media only screen and (max-width: 768px) {
+        -webkit-box-flex: 2;
+        -ms-flex: 2;
+        flex: 2;
+      }
       span {
         text-align: center;
         margin: 0 auto;
@@ -87,8 +107,8 @@ section {
           @include fontStyle();
         }
         &:nth-child(3) {
-          color: white;
-          background: #d00256;
+          color: $WHITE;
+          background: $PINK;
           padding: 10px;
           @include fontStyle();
         }
@@ -102,6 +122,9 @@ section {
     }
     &:last-child {
       border-bottom: none;
+    }
+    @media only screen and (min-width: 769px) {
+      width: $DESKTOP_WIDTH;
     }
   }
 }

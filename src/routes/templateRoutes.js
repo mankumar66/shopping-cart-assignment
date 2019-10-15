@@ -2,42 +2,42 @@
 const express = require('express'),
     templateRoute = express.Router(),
     api = require('../helper/xhr'),
-    baseUrl = 'http://localhost:3000',
+    apiConsts = require('./../utils/apiConst'),
     constants = require('./../utils/locales/en');
     
     
 /* GET requests */
 templateRoute.get(['/', '/home'], (req, res, next) => {
     Promise.all([
-        api(`${baseUrl}/api/banners`),
-        api(`${baseUrl}/api/categories`),
-        api(`${baseUrl}/api/cart`)
+        api(apiConsts.GET_BANNERS_API),
+        api(apiConsts.GET_CATEGORIES_API),
+        api(apiConsts.GET_CART_API)
     ]).then(([sliderContent, categoryContent, cart]) => {
-        res.render('home', { sliderContent, categoryContent, cart })
+        res.render('home', { sliderContent, categoryContent, cart, constants })
     })
         .catch((err) => res.send(constants.API_ERROR));
 });
 
 templateRoute.get('/products', (req, res, next) => {
     Promise.all([
-        api(`${baseUrl}/api/products`),
-        api(`${baseUrl}/api/categories`),
-        api(`${baseUrl}/api/cart`)
+        api(apiConsts.GET_PRODUCTS_API),
+        api(apiConsts.GET_CATEGORIES_API),
+        api(apiConsts.GET_CART_API)
     ]).then(([productContent, categoryContent, cart]) => {
-        res.render('products', { productContent, categoryContent, cart })
+        res.render('products', { productContent, categoryContent, cart, constants})
     })
         .catch((err) => res.send(constants.API_ERROR));
 });
 
 templateRoute.get('/login', (req, res, next) => {
-    api(`${baseUrl}/api/cart`)
-    .then(cart => res.render('login', {cart}))
+    api(apiConsts.GET_CART_API)
+    .then(cart => res.render('login', {cart, constants}))
     .catch((err) => res.send(constants.API_ERROR));
 });
 
 templateRoute.get('/register', (req, res, next) => {
-    api(`${baseUrl}/api/cart`)
-    .then(cart => res.render('registration', {cart}))
+    api(apiConsts.GET_CART_API)
+    .then(cart => res.render('registration', {cart, constants}))
     .catch((err) => res.send(constants.API_ERROR));
 });
 

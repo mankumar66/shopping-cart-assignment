@@ -1,5 +1,6 @@
-import { postRequest } from './../../helper/requestCenter';
-import apiConst from './../../utils/locales';
+import { getPostRequest } from '../../helper/clientApi';
+import apiConst from './../../utils/apiConst';
+import constants from './../../utils/locales/en';
 
 let filterContainer = document.getElementById("filterContainer");
 let filterContainerDD = document.getElementById("filterContainerDropdown");
@@ -56,7 +57,7 @@ if (addToCartButton) {
 /* Api post call on Buy Now */
 const addToCart = (id) => {
   let data = { "id": id };
-  postRequest(apiConst.API_ADD_TO_CART, data)
+  getPostRequest(apiConst.ADD_TO_CART_API,{method: constants.POST_METHOD, data:data})
     .then(res => {
       if (document.getElementById("itemCount")) {
         document.getElementById("itemCount").innerText = res.cartItems.totalItems;

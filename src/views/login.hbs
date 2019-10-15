@@ -1,21 +1,21 @@
 <div class="loginContainer">
     <div class="loginTextContainer">
-        <h1>Login</h1>
-        <span>Get access to your Orders, Wishlist and Recommendations</span>
+        <h1>{{constants.LOGIN_LABEL}}</h1>
+        <span>{{constants.LOGIN_BRANDING_LABEL}}</span>
     </div>
     <form method="post" action="/home" class="contact-form">
         <div id="emailContainer" class="inputContainer">
-            <label for="email">Email</label>
+            <label for="email">{{constants.EMAIL_LABEL}}</label>
             <input type="email" id="email" name="email" placeholder="" required />
         </div>
 
         <div id="pswdContainer" class="inputContainer">
-            <label for="password">Password</label>
+            <label for="password">{{constants.PASSWORD_LABEL}}</label>
             <input type="password" id="password" placeholder=""
             {{!-- oninvalid="this.setCustomValidity('Please enter a 6-10 character password having at least 1 alphabet and 1 number. Allowed special charectors are !@#$%')"
             pattern="^(?=.*\d+)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%]{6,10}$" --}} required />
         </div>
 
-        <button type="submit">Login</button>
+        <button type="submit">{{constants.LOGIN_LABEL}}</button>
     </form>
 </div>

@@ -1,4 +1,6 @@
-import {getRequest, postRequest} from '../../helper/requestCenter';
+import { getPostRequest } from '../../helper/clientApi';
+import apiConst from './../../utils/apiConst';
+import constants from './../../utils/locales/en';
 
 let minusBtn = document.getElementsByClassName("minusBtn--js");
 let cartDiv = document.getElementById("cart--js");
@@ -7,27 +9,25 @@ let cartContainer = document.getElementById("cartContainer--js");
 let overlay = document.getElementById("overlay--js");
 
 
-var dynamicCartHTML = (apiRes) => {
+const dynamicCartHTML = (apiRes) => {
   return `<div class="cartHeader" id="cartHeader--js">
-  <h4>My Cart <span>(${apiRes.totalItems} item)</span></h4>
+  <h4>${constants.CART_HEADER_LABEL} <span>(${apiRes.totalItems} ${constants.CART_ITEM_LABEL})</span></h4>
   <button class="closeOverlay--js">x</button>
   </div>
   <div id="cartItems">
     <div id="listItemContainer"></div>
   <div class="cartButton">
-    <span id="promoSpan">
-      Promo code can be applied on product page
-    </span>
+    <span id="promoSpan">${constants.CART_PROMO_LABEL}</span>
     <button class="closeOverlay--js">
-      <span>Proceed to Checkout</span>
+      <span>${constants.PROCEED_CHECKOUT_LABEL}</span>
       <span id="totalCartCost--js">Rs.${apiRes.totalPrice} ></span>
     </button>
   </div>
   </div>`
 }
 
-var liListItems = (apiRes) => {
-  var ulItem = document.createElement("ul");
+const liListItems = (apiRes) => {
+  let ulItem = document.createElement("ul");
   for (var key in apiRes.items) {
     ulItem.innerHTML += `<li><img src="${apiRes.items[key].item.imageURL}" alt="{${apiRes.items[key].item.name}" />
     <div id="itemDetail">
@@ -41,38 +41,40 @@ var liListItems = (apiRes) => {
       </div>
     </div>
     <div class="itemCost">
-      <span>Rs.${apiRes.items[key].price}</span>
+      <span>${constants.RS_LABEL}${apiRes.items[key].price}</span>
     </div></li>`
   }
   ulItem.innerHTML += `<div class="lowestPriceBranding">
                         <img src="/static/images/lowest-price.png" alt="lowest price image" />
-                        <span>You won't find it cheaper anywhere</span>
+                        <span>${constants.PRICE_BRANDING_LABEL}</span>
                       </div>`
   return ulItem;
 }
 
-var emptyCartHTML = `
+const emptyCartHTML = `
   <div class="cartHeader" id="cartHeader--js">
-    <h4>My Cart</h4>
+    <h4>${constants.CART_HEADER_LABEL}</h4>
     <button class="closeOverlay--js">x</button>
   </div>
   <div id="cartEmpty">
     <div class="cartEmptyText">
-    <h4>No items in your cart</h4>
-    <span>Your favourite items are just a click away</span>
+    <h4>${constants.EMPTY_CART_LABEL}</h4>
+    <span>${constants.FAV_ITEM_LABEL}</span>
   </div>
   <div class="cartButton">
-    <button class="closeOverlay--js">Start Shopping</button>
+    <button class="closeOverlay--js">${constants.START_SHOPPING_LABEL}</button>
   </div>`;
-var hideCartOverlay = () => {
+
+const hideCartOverlay = () => {
   let closeOverlayBtn = document.getElementsByClassName("closeOverlay--js");
   if (closeOverlayBtn) {
     for (let i = 0; i < closeOverlayBtn.length; i++) {
-      closeOverlayBtn[i].addEventListener("click", ()=> overlay.style.display = "none");
+      closeOverlayBtn[i].addEventListener("click", () => overlay.style.display = "none");
     }
   }
 }
-var renderCart = (res) => {
+
+const renderCart = (res) => {
   cartContainer.innerHTML = dynamicCartHTML(res);
   document.getElementById("listItemContainer").appendChild(liListItems(res));
   if (minusBtn) {
@@ -88,11 +90,11 @@ var renderCart = (res) => {
   }
   hideCartOverlay();
 }
-var showCartOverlay = () => {
-  getRequest("http://localhost:3000/api/cart")
+
+const showCartOverlay = () => {
+  getPostRequest(apiConst.GET_CART_API,{method: constants.GET_METHOD})
     .then(res => {
-      console.log(res);
-      if (res.length === 0 || res.totalItems ===0) {
+      if (res.length === 0 || res.totalItems === 0) {
         cartContainer.innerHTML = emptyCartHTML;
         hideCartOverlay();
       }
@@ -106,11 +108,10 @@ var showCartOverlay = () => {
   }
 }
 
-var decreaseCartCount = (e) => {
+const decreaseCartCount = (e) => {
   let data = { "id": e.target.parentNode.id };
-  postRequest("http://localhost:3000/api/remove", data)
+  getPostRequest(apiConst.REMOVE_FROM_CART_API,{method: constants.POST_METHOD, data:data})
     .then(res => {
-      console.log("testing");
       if (res.totalItems === 0) {
         if (document.getElementById("cartItems")) {
           cartContainer.innerHTML = emptyCartHTML;
@@ -123,9 +124,9 @@ var decreaseCartCount = (e) => {
     .catch(err => console.log(err))
 }
 
-var increaseCartCount = (e) => {
+const increaseCartCount = (e) => {
   let data = { "id": e.target.parentNode.id };
-  postRequest("http://localhost:3000/api/addToCart",data)
+  getPostRequest(apiConst.ADD_TO_CART_API,{method: constants.POST_METHOD, data:data})
     .then(res => {
       renderCart(res.cartItems);
       if (document.getElementById("itemCount")) {

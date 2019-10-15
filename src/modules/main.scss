@@ -1,23 +1,23 @@
-$desktop-width: 80%;
-$half-width: 50%;
-$full_width: 100%;
+@import './theme.scss';
+
+
 @mixin desktop_width() {
-  @media only screen and (min-width: 770px) {
-    width: $desktop-width;
+  @media only screen and (min-width: 769px) {
+    width: $DESKTOP_WIDTH;
   }
-  @media only screen and (max-width: 769px) {
-    width: $full_width;
+  @media only screen and (max-width: 768px) {
+    width: $FULL_WIDTH;
   }
 }
 @mixin half_width() {
-  @media only screen and (min-width: 770px) {
-    width: $half-width;
+  @media only screen and (min-width: 769px) {
+    width: $HALF_WIDTH;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
   }
-  @media only screen and (max-width: 769px) {
-    width: $full_width;
+  @media only screen and (max-width: 768px) {
+    width: $FULL_WIDTH;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -29,8 +29,8 @@ $full_width: 100%;
 }
 @mixin buttonStyle {
   border: none;
-  color: white;
-  background: #d00256;
+  color: $WHITE;
+  background: $PINK;
 }
 @mixin sectionStyle {
   @include desktop_width();
@@ -50,7 +50,7 @@ body {
   overflow-x: hidden;
   a {
     text-decoration: none;
-    color: black;
+    color: $BLACK;
   }
 }
 
@@ -66,175 +66,19 @@ hr {
   margin: 0;
   height: 10px;
   border: 0;
-  -webkit-box-shadow: 0 10px 10px -10px #eeeeee inset;
-  box-shadow: 0 10px 10px -10px #eeeeee inset;
+  -webkit-box-shadow: 0 10px 10px -10px $GRAY inset;
+  box-shadow: 0 10px 10px -10px $GRAY inset;
 }
 
 footer {
-  background: #eee;
+  background: $GRAY;
   padding: 10px 0;
   p {
     @include sectionStyle();
     @include fontStyle();
-  }
-}
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (max-width: 769px) {
-  section .categoryItem {
-    div {
-      -webkit-box-flex: 2;
-      -ms-flex: 2;
-      flex: 2;
-    }
-    img {
-      -webkit-box-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-    }
-  }
-  footer p {
-    text-align: center;
-  }
-  #productContainer {
-    aside {
-      -webkit-box-flex: auto;
-      -ms-flex: auto;
-      flex: auto;
-    }
-    section {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      div .desc {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-                flex-direction: row;
-      }
-      .product {
-        h4 {
-          margin-bottom: 0;
-          height: 50px;
-        }
-        img {
-          width: 50%;
-        }
-        div:not(.desc) {
-          span {
-            display: none;
-          }
-          button {
-            width: 100%;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                    justify-content: center;
-            padding: 10px;
-            span {
-              display: -webkit-box;
-              display: -ms-flexbox;
-              display: flex;
-            }
-          }
-        }
-      }
-    }
-  }
-  .overlay {
-    top: 70px;
-    .cartContainer {
-      top: 0;
-      .cartHeader {
-        background: white;
-        color: black;
-      }
-      left: 0;
-      width: 100%;
-      ul,
-      li {
-        width: 100%;
-        .lowestPriceBranding {
-          width: 98%;
-          img {
-            width: 20%;
-          }
-        }
-      }
-      #cartItems li img {
-        width: 10%;
-        -webkit-box-flex: 0;
-            -ms-flex: 0;
-                flex: 0;
-      }
+    @media only screen and (max-width: 768px) {
+      text-align: center;
     }
   }
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (max-width: 600px) {
-  #arrow-left,
-  #arrow-right {
-    display: none;
-  }
-  .dots-wrapper {
-    margin: 0 0 -30px 0;
-  }
-  .header_container {
-    height: 50px;
-    .wrapper {
-      -webkit-box-pack: end;
-      -ms-flex-pack: end;
-      justify-content: flex-end;
-    }
-    .cart {
-      height: 100%;
-    }
-    nav,
-    .loginItems {
-      display: none;
-    }
-  }
-  .loginContainer {
-    form {
-      -webkit-box-flex: 2;
-      -ms-flex: 2;
-      flex: 2;
-    }
-    .loginTextContainer span {
-      font-size: x-small;
-    }
-    h1 {
-      font-size: medium;
-    }
-  }
-  #productContainer section select {
-    color: white;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    background: #d00256;
-    padding: 10px;
-  }
-  aside {
-    display: none;
-  }
-  .overlay {
-    top: 50px;
-    .cartContainer {
-      height: calc(100% - 50px);
-    }
-  }
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-} 

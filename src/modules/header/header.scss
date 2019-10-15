@@ -1,6 +1,5 @@
 @import "./../main.scss";
 
-
 h4 {
   margin: 0;
 }
@@ -13,8 +12,8 @@ ul {
 .overlay {
   position: fixed;
   display: none;
-  width: 100%;
-  height: 100%;
+  width: $FULL_WIDTH;
+  height: $FULL_HEIGHT;
   top: 0px;
   left: 0;
   right: 0;
@@ -22,9 +21,15 @@ ul {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
   cursor: pointer;
+  @media only screen and (max-width: 768px) {
+    top: 70px;
+  }
+  @media only screen and (max-width: 600px) {
+    top: 50px;
+  }
   .cartContainer {
     position: relative;
-    background: #eeeeee;
+    background: $GRAY;
     top: 70px;
     width: 30%;
     left: 60%;
@@ -33,15 +38,27 @@ ul {
     -ms-flex-direction: column;
     flex-direction: column;
     height: calc(100% - 70px);
+    @media only screen and (max-width: 768px) {
+      top: 0;
+      left: 0;
+      width: $FULL_WIDTH;;
+    }
+    @media only screen and (max-width: 600px) {
+      height: calc(100% - 50px);
+    }
     .cartHeader {
-      color: white;
+      color: $WHITE;
       background: black;
-      width: 100%;
+      width: $FULL_WIDTH;;
       justify-content: space-between;
-      button{
+      @media only screen and (max-width: 768px) {
+        background: white;
+        color: $BLACK;
+      }
+      button {
         border: none;
         background: none;
-        color:white;
+        color: $WHITE;
         padding: 10px 20px;
       }
       h4 {
@@ -89,11 +106,11 @@ ul {
       -ms-flex-direction: column;
       flex-direction: column;
       background: white;
-      color: black;
+      color: $BLACK;
       -webkit-box-pack: justify;
       -ms-flex-pack: justify;
       justify-content: space-between;
-      height: 100%;
+      height: $FULL_HEIGHT;
       .cartEmptyText {
         -webkit-box-align: center;
         -ms-flex-align: center;
@@ -113,7 +130,7 @@ ul {
         justify-content: center;
       }
     }
-    #listItemContainer{
+    #listItemContainer {
       height: calc(92% - 10px);
     }
     ul {
@@ -141,10 +158,24 @@ ul {
         -moz-border-radius: 6px;
         -ms-border-radius: 6px;
         -o-border-radius: 6px;
+        @media only screen and (max-width: 768px) {
+          width: 98%;
+        }
         img {
           width: 25%;
           margin-right: 20px;
+          @media only screen and (max-width: 768px) {
+            width: 20%;
+          }
         }
+      }
+      @media only screen and (max-width: 768px) {
+        li {
+          width: $FULL_WIDTH;;
+        }
+      }
+      @media only screen and (max-width: 768px) {
+        width: $FULL_WIDTH;;
       }
     }
     #cartItems {
@@ -152,7 +183,7 @@ ul {
       -webkit-box-direction: normal;
       -ms-flex-direction: column;
       flex-direction: column;
-      height: 100%;
+      height: $FULL_HEIGHT;
       li {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
@@ -163,12 +194,18 @@ ul {
         display: flex;
         padding: 10px;
         background: white;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid $GRAY;
         img {
           width: 20%;
           -webkit-box-flex: 1;
           -ms-flex: 1;
           flex: 1;
+          @media only screen and (max-width: 768px) {
+            width: 10%;
+            -webkit-box-flex: 0;
+            -ms-flex: 0;
+            flex: 0;
+          }
         }
         #itemDetail {
           -webkit-box-orient: vertical;
@@ -218,6 +255,9 @@ ul {
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
+  @media only screen and (max-width: 600px) {
+    height: 50px;
+  }
   img {
     -webkit-box-flex: 1;
     -ms-flex: 1;
@@ -232,14 +272,22 @@ ul {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    @media only screen and (max-width: 600px) {
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      justify-content: flex-end;
+    }
     nav {
       margin-left: 3%;
-      height: 100%;
+      height: $FULL_HEIGHT;
       a {
-        color: #717171;
+        color: $DARK_GRAY;
         padding: 4px;
         margin: 35% 20% 0 20%;
         @include fontStyle();
+        @media only screen and (max-width: 600px) {
+          display: none;
+        }
       }
     }
     .cart {
@@ -250,8 +298,11 @@ ul {
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      background-color: #eeeeee;
+      background-color: $GRAY;
       padding: 8%;
+      @media only screen and (max-width: 600px) {
+        height: $FULL_HEIGHT;
+      }
       img {
         width: 15px;
         height: 25px;
@@ -276,6 +327,9 @@ ul {
         -webkit-box-pack: end;
         -ms-flex-pack: end;
         justify-content: flex-end;
+        @media only screen and (max-width: 600px) {
+          display: none;
+        }
       }
     }
   }
