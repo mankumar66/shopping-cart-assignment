@@ -19,7 +19,7 @@ const bindEvents = (element) => {
 };
 
 /* get DOM elements */
-const floatContainers = document.querySelectorAll('.inputContainer');
+const floatContainers = document.getElementsByClassName('input-container--js');
 if (floatContainers) {
     for (let i = 0; i < floatContainers.length; i++) {
         bindEvents(floatContainers[i]);

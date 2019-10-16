@@ -1,27 +1,27 @@
-<div id="productContainer">
-    <aside id="filterContainer">
+<div id="product-container--js" class="product-container">
+    <aside id="filter-container--js" class="product-container__aside">
         {{#each categoryContent}}
-        <div>
-            <a class="filter-category" href="#" id={{id}}>{{name}}</a>
+        <div class="product-container__aside__aside-elem">
+            <a class="filter-category--js" href="#" id={{id}}>{{name}}</a>
         </div>
         {{/each}}
     </aside>
-    <section>
-        <select name="dropdown" label="dropdown" id="filterContainerDropdown" >
+    <section class="product-container__section">
+        <select name="dropdown" label="dropdown" id="filter-container-dd--js">
             {{#each categoryContent}}
-            <option label="{{name}}" class="filtercategory" value="{{id}}">{{name}}</option>
+            <option label="{{name}}" value="{{id}}">{{name}}</option>
             {{/each}}
         </select>
         {{#each productContent}}
-        <div class="product {{category}}">
-            <h4 tabindex="0" >{{name}}</h4>
-            <div class="desc">
+        <div class="product-container__section__product product--js {{category}}">
+            <h4 tabindex="0">{{name}}</h4>
+            <div class="product-container__section__product__desc">
                 <img tabindex="0" src="{{imageURL}}" alt="image" />
-                <p tabindex="0" >{{description}}</p>
+                <p tabindex="0">{{description}}</p>
             </div>
-            <div class="priceDesc">
-                <span tabindex="0" >MRP Rs.{{price}}</span>
-                <button id="{{this.id}}" class="addToCart" >Buy Now <span>@Rs.{{price}}</span></button>
+            <div class="product-container__section__product__price-desc">
+                <span tabindex="0">MRP Rs.{{price}}</span>
+                <button id="{{this.id}}" class="addToCart">Buy Now <span>@Rs.{{price}}</span></button>
             </div>
         </div>
         {{/each}}

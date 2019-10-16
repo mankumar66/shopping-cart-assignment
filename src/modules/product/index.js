@@ -2,15 +2,15 @@ import { getPostRequest } from '../../helper/clientApi';
 import apiConst from './../../utils/apiConst';
 import constants from './../../utils/locales/en';
 
-let filterContainer = document.getElementById("filterContainer");
-let filterContainerDD = document.getElementById("filterContainerDropdown");
+let filterContainer = document.getElementById("filter-container--js");
+let filterContainerDD = document.getElementById("filter-container-dd--js");
 let addToCartButton = document.getElementsByClassName("addToCart");
 
 
 const filterSelection = category => {
   let productList, i;
   /* Get all products by className */
-  productList = document.getElementsByClassName("product");
+  productList = document.getElementsByClassName("product--js");
   if (category == "all") category = "";
   if (productList) {
     for (i = 0; i < productList.length; i++) {
@@ -24,7 +24,7 @@ const filterSelection = category => {
 };
 
 if (filterContainer) {
-  let filterLinks = filterContainer.getElementsByClassName("filter-category");
+  let filterLinks = filterContainer.getElementsByClassName("filter-category--js");
   for (let i = 0; i < filterLinks.length; i++) {
     filterLinks[i].addEventListener("click", e => {
       let current = document.getElementsByClassName("active");
@@ -67,6 +67,6 @@ const addToCart = (id) => {
 }
 
 /* Load complete products data */
-if (document.getElementById("#productContainer")) {
+if (document.getElementById("#product-container--js")) {
   filterSelection("all");
 }

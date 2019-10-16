@@ -1,12 +1,12 @@
 import constants from './../../utils/locales/en';
 
-const cnfmPasswordField = document.getElementById("cnfmPswdContainer"),
-  passwordField = document.getElementById("pswdContainer"),
-  submitBtn = document.getElementById("submitButton"),
+const cnfmPasswordField = document.getElementById("cnfmpswd-container--js"),
+  passwordField = document.getElementById("pswd-container--js"),
+  submitBtn = document.getElementById("submit-button--js"),
   mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
   pswdFormat = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,15}$/,
   cnfmPasswordDiv = document.getElementById("cnfmPassword"),
-  errorContainer = document.getElementById('errorContainer');
+  errorContainer = document.getElementById('error-container--js');
 
 const validateForm = () => {
   let inputFields, i, valid = true;

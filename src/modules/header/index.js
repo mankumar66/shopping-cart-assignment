@@ -5,22 +5,22 @@ import constants from './../../utils/locales/en';
 let minusBtn = document.getElementsByClassName("minusBtn--js");
 let cartDiv = document.getElementById("cart--js");
 let plusBtn = document.getElementsByClassName("plusBtn--js");
-let cartContainer = document.getElementById("cartContainer--js");
+let cartContainer = document.getElementById("cart-detail-view--js");
 let overlay = document.getElementById("overlay--js");
 
 
 const dynamicCartHTML = (apiRes) => {
   return `<div class="cartHeader" id="cartHeader--js">
-  <h4>${constants.CART_HEADER_LABEL} <span>(${apiRes.totalItems} ${constants.CART_ITEM_LABEL})</span></h4>
+  <h4 tabindex="0">${constants.CART_HEADER_LABEL} <span>(${apiRes.totalItems} ${constants.CART_ITEM_LABEL})</span></h4>
   <button class="closeOverlay--js">x</button>
   </div>
   <div id="cartItems">
     <div id="listItemContainer"></div>
   <div class="cartButton">
-    <span id="promoSpan">${constants.CART_PROMO_LABEL}</span>
+    <span tabindex="0" id="promoSpan">${constants.CART_PROMO_LABEL}</span>
     <button class="closeOverlay--js">
       <span>${constants.PROCEED_CHECKOUT_LABEL}</span>
-      <span id="totalCartCost--js">Rs.${apiRes.totalPrice} ></span>
+      <span>Rs.${apiRes.totalPrice} ></span>
     </button>
   </div>
   </div>`
@@ -29,37 +29,37 @@ const dynamicCartHTML = (apiRes) => {
 const liListItems = (apiRes) => {
   let ulItem = document.createElement("ul");
   for (var key in apiRes.items) {
-    ulItem.innerHTML += `<li><img src="${apiRes.items[key].item.imageURL}" alt="{${apiRes.items[key].item.name}" />
+    ulItem.innerHTML += `<li><img tabindex="0" src="${apiRes.items[key].item.imageURL}" alt="{${apiRes.items[key].item.name}" />
     <div id="itemDetail">
-      <strong>${apiRes.items[key].item.name}</strong>
+      <strong tabindex="0">${apiRes.items[key].item.name}</strong>
       <div id="${apiRes.items[key].item.id}">
         <button class="minusBtn--js">-</button>
-        <span class="itemQuantity">${apiRes.items[key].quantity}</span>
+        <span tabindex="0" class="itemQuantity">${apiRes.items[key].quantity}</span>
         <button class="plusBtn--js">+</button>
-        <span>X</span>
-        <span>Rs.${apiRes.items[key].item.price}</span>
+        <span tabindex="0">X</span>
+        <span tabindex="0">Rs.${apiRes.items[key].item.price}</span>
       </div>
     </div>
     <div class="itemCost">
-      <span>${constants.RS_LABEL}${apiRes.items[key].price}</span>
+      <span tabindex="0">${constants.RS_LABEL}${apiRes.items[key].price}</span>
     </div></li>`
   }
   ulItem.innerHTML += `<div class="lowestPriceBranding">
-                        <img src="/static/images/lowest-price.png" alt="lowest price image" />
-                        <span>${constants.PRICE_BRANDING_LABEL}</span>
+                        <img tabindex="0" src="/static/images/lowest-price.png" alt="lowest price image" />
+                        <span tabindex="0">${constants.PRICE_BRANDING_LABEL}</span>
                       </div>`
   return ulItem;
 }
 
 const emptyCartHTML = `
   <div class="cartHeader" id="cartHeader--js">
-    <h4>${constants.CART_HEADER_LABEL}</h4>
+    <h4 tabindex="0">${constants.CART_HEADER_LABEL}</h4>
     <button class="closeOverlay--js">x</button>
   </div>
   <div id="cartEmpty">
     <div class="cartEmptyText">
-    <h4>${constants.EMPTY_CART_LABEL}</h4>
-    <span>${constants.FAV_ITEM_LABEL}</span>
+    <h4 tabindex="0">${constants.EMPTY_CART_LABEL}</h4>
+    <span tabindex="0">${constants.FAV_ITEM_LABEL}</span>
   </div>
   <div class="cartButton">
     <button class="closeOverlay--js">${constants.START_SHOPPING_LABEL}</button>

@@ -3,8 +3,8 @@ import constants from './../../utils/locales/en';
 let leftArrow = document.getElementById("arrow-left");
 let rightArrow = document.getElementById("arrow-right");
 let slideIndex = 1;
-let slides = document.getElementsByClassName("slider");
-let dots = document.getElementsByClassName("dot");
+let slides = document.getElementsByClassName("image-container--js");
+let dots = document.getElementsByClassName("dot--js");
 
 const showSlides = n => {
   let i;

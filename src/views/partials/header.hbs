@@ -1,21 +1,23 @@
-<header class="header_container">
-  <img tabindex="0" src="/static/images/logo.png" alt="Brand logo">
-  <div class='wrapper'>
-    <nav>
-      <a href="/home">{{constants.HOME_LABEL}}</a>
-      <a href="/products">{{constants.PRODUCTS_LABEL}}</a>
+<header class="header">
+  <img class="header__logo" tabindex="0" src="/static/images/logo.png" alt="Brand logo">
+  <div class="header__main-content">
+    <nav class="header__main-content__nav">
+      <a class="header__main-content__nav__links" href="/home">{{constants.HOME_LABEL}}</a>
+      <a class="header__main-content__nav__links" href="/products">{{constants.PRODUCTS_LABEL}}</a>
     </nav>
-    <div class='rightItems'>
-      <div class='loginItems'>
+    <div class="header__main-content__right-items">
+      <div class="header__main-content__right-items__login-links">
         <a href="/login">{{constants.SIGN_IN_LABEL}}</a>
         <a href="/register">{{constants.REGISTER_LABEL}}</a>
       </div>
-      <div tabindex="0" class='cart' id="cart--js">
-        <img src="/static/images/cart.svg" alt="Brand logo">
+      <div tabindex="0" class="header__main-content__cart" id="cart--js">
+        <img class="header__main-content__cart__image" src="/static/images/cart.svg" alt="Brand logo">
         {{# if cart.totalItems}}
-        <span><span id="itemCount">{{cart.totalItems}} </span> {{constants.ITEM_LABEL}}</span>
+        <span class="header__main-content__cart__item-description"><span id="itemCount">{{cart.totalItems}} </span>
+          {{constants.ITEM_LABEL}}</span>
         {{ else }}
-        <span><span id="itemCount">0 </span> {{constants.ITEM_LABEL}}</span>
+        <span class="header__main-content__cart__item-description"><span id="itemCount">0 </span>
+          {{constants.ITEM_LABEL}}</span>
         {{/if}}
       </div>
     </div>
@@ -23,7 +25,7 @@
 </header>
 
 <div id="overlay--js" class="overlay">
-  <div class="cartContainer" id="cartContainer--js">
-    
+  <div class="overlay__cart-detail-view" id="cart-detail-view--js">
+
   </div>
 </div>

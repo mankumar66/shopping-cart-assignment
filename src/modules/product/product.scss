@@ -1,10 +1,10 @@
 @import "./../main.scss";
 
-#productContainer {
+.product-container {
   @include sectionStyle();
   margin-top: -10px;
   overflow: auto;
-  aside {
+  &__aside {
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -18,7 +18,7 @@
     @media only screen and (max-width: 600px) {
       display: none;
     }
-    div {
+    &__aside-elem {
       border-bottom: 1px solid #98949430;
       a {
         color: $MEDIUM_GRAY;
@@ -32,7 +32,7 @@
       }
     }
   }
-  section {
+  &__section {
     display: -ms-grid;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -50,35 +50,12 @@
         padding: 10px;
       }
     }
-    .product {
+    &__product {
       padding: 10px;
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
       -ms-flex-direction: column;
       flex-direction: column;
-      div {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-      }
-      .priceDesc {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-      }
-      img {
-        width: $FULL_WIDTH;;
-        @media only screen and (max-width: 768px) {
-          width: $HALF_WIDTH;
-        }
-      }
-      p {
-        background: $GRAY;
-        padding: 5px;
-        @include fontStyle();
-      }
       h4 {
         margin-bottom: 0;
         height: 70px;
@@ -87,7 +64,31 @@
           height: 50px;
         }
       }
-      div:not(.desc) {
+      &__desc {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        img {
+          width: $FULL_WIDTH;
+          @media only screen and (max-width: 768px) {
+            width: $HALF_WIDTH;
+          }
+        }
+        p {
+          background: $GRAY;
+          padding: 5px;
+          @include fontStyle();
+          @media only screen and (max-width: 768px) {
+            margin: 0;
+          }
+        }
+      }
+      &__price-desc {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
@@ -101,7 +102,7 @@
         border-bottom: 1px solid gray;
         border-bottom-style: dashed;
         @media only screen and (max-width: 768px) {
-          span{
+          span {
             display: none;
           }
         }
@@ -119,7 +120,7 @@
             }
           }
           @media only screen and (max-width: 768px) {
-            width: $FULL_WIDTH;;
+            width: $FULL_WIDTH;
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
@@ -134,7 +135,7 @@
   }
 }
 @media only screen and (max-width: 768px) {
-  #productContainer section div .desc {
+  .product-container__section__product__desc {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -ms-flex-direction: row;

@@ -1,6 +1,6 @@
 @import "./../main.scss";
 
-.loginContainer {
+.login-container {
   margin: auto;
   @include half_width();
   @media only screen and (max-width: 600px) {
@@ -8,7 +8,7 @@
       font-size: medium;
     }
   }
-  .loginTextContainer {
+  &__login-label {
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -24,7 +24,7 @@
       }
     }
   }
-  form {
+  &__form {
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -35,22 +35,22 @@
       -ms-flex: 2;
       flex: 2;
     }
-    #errorContainer{
+    &__err-div {
       color: $RED;
       @media only screen and (max-width: 600px) {
         font-size: small;
       }
     }
-    .inputContainer {
+    &__input-container {
       margin-bottom: 8px;
       position: relative;
       input {
         border: none;
-        border-bottom: solid 1.5px darken( $GRAY, 15% );
+        border-bottom: solid 1.5px darken($GRAY, 15%);
         font-size: 16px;
         outline: 0;
         padding: 20px 0 10px;
-        width: $FULL_WIDTH;;
+        width: $FULL_WIDTH;
         &:focus {
           outline: none !important;
           border-bottom: solid 1.5px $SKY_BLUE;
@@ -61,7 +61,7 @@
       }
       label {
         font-size: 16px;
-        color: darken( $GRAY, 15% );
+        color: darken($GRAY, 15%);
         position: absolute;
         -webkit-transform-origin: top left;
         -ms-transform-origin: top left;
@@ -93,7 +93,7 @@
       padding: 10px;
       margin-top: 25px;
       cursor: pointer;
-      width: $FULL_WIDTH;;
+      width: $FULL_WIDTH;
     }
   }
 }

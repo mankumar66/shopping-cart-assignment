@@ -1,19 +1,19 @@
-<div class="loginContainer">
-    <div class="loginTextContainer">
+<div class="login-container">
+    <div class="login-container__login-label">
         <h1>{{constants.LOGIN_LABEL}}</h1>
         <span>{{constants.LOGIN_BRANDING_LABEL}}</span>
     </div>
-    <form autocomplete="off" id="regForm" method="post" action="/home" class="contact-form">
-        <div id="emailContainer" class="inputContainer">
+    <form autocomplete="off" id="regForm" class="login-container__form" method="post" action="/home">
+        <div id="emailContainer" class="login-container__form__input-container input-container--js">
             <label for="email">{{constants.EMAIL_LABEL}}</label>
             <input type="email" id="email" name="email" placeholder="" name="email" oninput="this.className = ''" />
         </div>
 
-        <div id="pswdContainer" class="inputContainer">
+        <div id="pswd-container--js" class="login-container__form__input-container input-container--js">
             <label for="password">{{constants.PASSWORD_LABEL}}</label>
             <input type="password" id="password" placeholder="" name="password" oninput="this.className = ''" />
         </div>
-        <div id="errorContainer"></div>
-        <button id="submitButton" type="button">{{constants.LOGIN_LABEL}}</button>
+        <div id="error-container--js" class="login-container__form__err-div"></div>
+        <button id="submit-button--js" type="button">{{constants.LOGIN_LABEL}}</button>
     </form>
 </div>

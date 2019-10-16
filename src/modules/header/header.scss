@@ -7,8 +7,12 @@ ul {
   padding: 10px;
   margin: 0;
   overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-
+ul::-webkit-scrollbar{
+  display: none;
+}
 .overlay {
   position: fixed;
   display: none;
@@ -27,7 +31,7 @@ ul {
   @media only screen and (max-width: 600px) {
     top: 50px;
   }
-  .cartContainer {
+  &__cart-detail-view {
     position: relative;
     background: $GRAY;
     top: 70px;
@@ -41,7 +45,7 @@ ul {
     @media only screen and (max-width: 768px) {
       top: 0;
       left: 0;
-      width: $FULL_WIDTH;;
+      width: $FULL_WIDTH;
     }
     @media only screen and (max-width: 600px) {
       height: calc(100% - 50px);
@@ -49,7 +53,9 @@ ul {
     .cartHeader {
       color: $WHITE;
       background: black;
-      width: $FULL_WIDTH;;
+      width: $FULL_WIDTH;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
       justify-content: space-between;
       @media only screen and (max-width: 768px) {
         background: white;
@@ -129,12 +135,13 @@ ul {
       }
     }
     #listItemContainer {
-      height: calc(92% - 10px);
+      height: calc(92% - 30px);
     }
     ul {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
+
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
@@ -169,11 +176,11 @@ ul {
       }
       @media only screen and (max-width: 768px) {
         li {
-          width: $FULL_WIDTH;;
+          width: $FULL_WIDTH;
         }
       }
       @media only screen and (max-width: 768px) {
-        width: $FULL_WIDTH;;
+        width: $FULL_WIDTH;
       }
     }
     #cartItems {
@@ -226,7 +233,7 @@ ul {
           }
           button,
           span {
-            margin-right: 15px;
+            margin-right: 5px;
           }
         }
         .itemCost {
@@ -243,7 +250,7 @@ ul {
   }
 }
 
-.header_container {
+.header {
   @include sectionStyle();
   -webkit-box-flex: 0;
   -ms-flex-positive: 0;
@@ -256,14 +263,14 @@ ul {
   @media only screen and (max-width: 600px) {
     height: 50px;
   }
-  img {
+  &__logo {
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
     height: 96%;
     padding: 2px;
   }
-  .wrapper {
+  &__main-content {
     -webkit-box-flex: 9;
     -ms-flex: 9;
     flex: 9;
@@ -275,10 +282,10 @@ ul {
       -ms-flex-pack: end;
       justify-content: flex-end;
     }
-    nav {
+    &__nav {
       margin-left: 3%;
       height: $FULL_HEIGHT;
-      a {
+      &__links {
         color: $DARK_GRAY;
         padding: 4px;
         margin: 35% 20% 0 20%;
@@ -288,25 +295,7 @@ ul {
         }
       }
     }
-    .cart {
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-      flex-direction: row;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      background-color: $GRAY;
-      padding: 8%;
-      @media only screen and (max-width: 600px) {
-        height: $FULL_HEIGHT;
-      }
-      img {
-        width: 15px;
-        height: 25px;
-      }
-    }
-    .rightItems {
+    &__right-items {
       width: 100px;
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
@@ -315,18 +304,39 @@ ul {
       -webkit-box-pack: justify;
       -ms-flex-pack: justify;
       justify-content: space-between;
-      a,
-      span {
-        @include fontStyle();
-        padding: 3px 5px 2px 5px;
-      }
-      .loginItems {
+      &__login-links {
         -webkit-box-pack: end;
         -ms-flex-pack: end;
         justify-content: flex-end;
         @media only screen and (max-width: 600px) {
           display: none;
         }
+      }
+      a,
+      &__cart__item-description {
+        @include fontStyle();
+        padding: 3px 5px 2px 5px;
+      }
+    }
+    &__cart {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: $GRAY;
+      padding: 6px;
+      @media only screen and (max-width: 600px) {
+        height: $FULL_HEIGHT;
+      }
+      &__image {
+        width: 15px;
+        height: 25px;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
       }
     }
   }

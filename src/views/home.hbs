@@ -1,27 +1,28 @@
 <section>
-    <div id="sliderContainer">
+    <div class="slider-container">
         {{#each sliderContent}}
-        <div tabindex="0" class="slider">
-            <img data-index="{{id}}" class="slide" alt="{{bannerImageAlt}}" src="{{bannerImageUrl}}" />
+        <div tabindex="0" class="slider-container__image-container image-container--js">
+            <img data-index="{{id}}" class="slider-container__image-container__image" alt="{{bannerImageAlt}}"
+                src="{{bannerImageUrl}}" />
         </div>
         {{/each}}
-        <a id="arrow-left" href="#">{{constants.PREV_LABEL}}</a>
-        <a id="arrow-right" href="#">{{constants.NEXT_LABEL}}</a>
-        <div class="dots-wrapper">
+        <a class="slider-container__nav-links" id="arrow-left" href="#">{{constants.PREV_LABEL}}</a>
+        <a class="slider-container__nav-links" id="arrow-right" href="#">{{constants.NEXT_LABEL}}</a>
+        <div class="slider-container__dots-wrapper">
             {{#each sliderContent}}
-            <span tabindex="0" class="dot"></span>
+            <span tabindex="0" class="slider-container__dots-wrapper__dot dot--js"></span>
             {{/each}}
         </div>
     </div>
 </section>
 <section>
     {{#each categoryContent }}
-    <div class="categoryItem">
-        <img tabindex="0" data-index="{{id}}" class="category" alt="{{key}}" src="{{imageUrl}}" />
-        <div>
+    <div class="category-list-item">
+        <img tabindex="0" data-index="{{id}}" class="category-list-item__image" alt="{{key}}" src="{{imageUrl}}" />
+        <div class="category-list-item__description">
             <span tabindex="0">{{name}}</span>
             <span tabindex="0">{{description}}</span>
-            <span><a href="">Explore {{key}}</a></span>
+            <a href="">Explore {{key}}</a>
         </div>
     </div>
     {{/each}}
