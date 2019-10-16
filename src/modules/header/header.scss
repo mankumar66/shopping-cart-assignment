@@ -10,7 +10,7 @@ ul {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-ul::-webkit-scrollbar{
+ul::-webkit-scrollbar {
   display: none;
 }
 .overlay {
@@ -32,15 +32,12 @@ ul::-webkit-scrollbar{
     top: 50px;
   }
   &__cart-detail-view {
+    @include flexDirCol();
     position: relative;
     background: $GRAY;
     top: 70px;
     width: 30%;
     left: 60%;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
     height: calc(100% - 70px);
     @media only screen and (max-width: 768px) {
       top: 0;
@@ -51,14 +48,12 @@ ul::-webkit-scrollbar{
       height: calc(100% - 50px);
     }
     .cartHeader {
+      @include justifyContentSpcBtn();
       color: $WHITE;
-      background: black;
+      background: $BLACK;
       width: $FULL_WIDTH;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
       @media only screen and (max-width: 768px) {
-        background: white;
+        background: $WHITE;
         color: $BLACK;
       }
       button {
@@ -74,17 +69,10 @@ ul::-webkit-scrollbar{
       }
     }
     .cartButton {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      background: white;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
+      @include flexDirCol();
+      @include alignItemsCenter();
+      background: $WHITE;
+      @include justifyContentCenter();
       height: auto;
       width: auto;
       padding: 10px;
@@ -96,68 +84,40 @@ ul::-webkit-scrollbar{
         width: 95%;
         padding: 12px;
         @include buttonStyle();
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
+        @include displayFlex();
+        @include justifyContentSpcBtn();
       }
     }
     #cartEmpty {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      background: white;
+      @include flexDirCol();
+      background: $WHITE;
       color: $BLACK;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
+      @include justifyContentSpcBtn();
       height: $FULL_HEIGHT;
       .cartEmptyText {
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
+        @include alignItemsCenter();
+        @include justifyContentCenter();
+        @include flexDirCol();
         height: 92%;
       }
       button {
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
+        @include justifyContentCenter();
       }
     }
     #listItemContainer {
       height: calc(92% - 30px);
     }
     ul {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
+      @include displayFlex();
+      @include alignItemsCenter();
+      @include flexDirCol();
       margin: 0;
       .lowestPriceBranding {
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
+        @include alignItemsCenter();
         width: 90%;
         padding: 10px;
         border-radius: 6px;
-        background: white;
+        background: $WHITE;
         margin-top: 10px;
         -webkit-border-radius: 6px;
         -moz-border-radius: 6px;
@@ -184,45 +144,28 @@ ul::-webkit-scrollbar{
       }
     }
     #cartItems {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
+      @include flexDirCol();
       height: $FULL_HEIGHT;
       li {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
+        @include flexDirRow();
+        @include displayFlex();
         padding: 10px;
-        background: white;
+        background: $WHITE;
         border-bottom: 1px solid $GRAY;
         img {
           width: 20%;
-          -webkit-box-flex: 1;
-          -ms-flex: 1;
-          flex: 1;
+          @include flex(1);
           @media only screen and (max-width: 768px) {
             width: 10%;
-            -webkit-box-flex: 0;
-            -ms-flex: 0;
-            flex: 0;
+            @include flex(0);
           }
         }
         #itemDetail {
-          -webkit-box-orient: vertical;
-          -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-          flex-direction: column;
+          @include flexDirCol();
           padding: 5px 10px;
           -ms-flex-pack: distribute;
           justify-content: space-around;
-          -webkit-box-flex: 1;
-          -ms-flex: auto;
-          flex: auto;
+          @include flexAuto();
           button {
             @include buttonStyle();
             border-radius: 50%;
@@ -252,31 +195,18 @@ ul::-webkit-scrollbar{
 
 .header {
   @include sectionStyle();
-  -webkit-box-flex: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
   height: 70px;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
   @media only screen and (max-width: 600px) {
     height: 50px;
   }
   &__logo {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
+    @include flex(1);
     height: 96%;
     padding: 2px;
   }
   &__main-content {
-    -webkit-box-flex: 9;
-    -ms-flex: 9;
-    flex: 9;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+    @include flex(9);
+    @include justifyContentSpcBtn();
     @media only screen and (max-width: 600px) {
       -webkit-box-pack: end;
       -ms-flex-pack: end;
@@ -297,13 +227,8 @@ ul::-webkit-scrollbar{
     }
     &__right-items {
       width: 100px;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
+      @include flexDirCol();
+      @include justifyContentSpcBtn();
       &__login-links {
         -webkit-box-pack: end;
         -ms-flex-pack: end;
@@ -319,13 +244,8 @@ ul::-webkit-scrollbar{
       }
     }
     &__cart {
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-      flex-direction: row;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
+      @include flexDirRow();
+      @include alignItemsCenter();
       background-color: $GRAY;
       padding: 6px;
       @media only screen and (max-width: 600px) {
@@ -334,9 +254,7 @@ ul::-webkit-scrollbar{
       &__image {
         width: 15px;
         height: 25px;
-        -webkit-box-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
+        @include flex(1);
       }
     }
   }

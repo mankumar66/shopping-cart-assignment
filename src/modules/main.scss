@@ -1,5 +1,4 @@
-@import './theme.scss';
-
+@import "./theme.scss";
 
 @mixin desktop_width() {
   @media only screen and (min-width: 769px) {
@@ -12,33 +11,69 @@
 @mixin half_width() {
   @media only screen and (min-width: 769px) {
     width: $HALF_WIDTH;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
   }
   @media only screen and (max-width: 768px) {
     width: $FULL_WIDTH;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
   }
 }
-@mixin fontStyle {
+@mixin fontStyle() {
   font-weight: 600;
   font-size: small;
 }
-@mixin buttonStyle {
+@mixin buttonStyle() {
   color: $WHITE;
   background: $PINK;
 }
-@mixin sectionStyle {
+@mixin sectionStyle() {
   @include desktop_width();
   margin: auto;
 }
-@mixin separatorStyle {
+@mixin separatorStyle() {
   border-bottom: 10px solid transparent;
   -o-border-image: url(/static/images/separator.png) 13;
   border-image: url(/static/images/separator.png) 13;
+}
+@mixin displayFlex() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+@mixin flex($flexVal) {
+  -webkit-box-flex: $flexVal;
+  -ms-flex: $flexVal;
+  flex: $flexVal;
+}
+@mixin flexDirCol() {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+@mixin flexDirRow() {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+@mixin flexAuto() {
+  -webkit-box-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+}
+@mixin justifyContentCenter() {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+@mixin justifyContentSpcBtn() {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+@mixin alignItemsCenter() {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 body {
   font-family: "Dosis", "Arial";
@@ -57,9 +92,7 @@ div,
 nav,
 header,
 footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  @include displayFlex();
 }
 hr {
   margin: 0;
@@ -70,9 +103,9 @@ hr {
 }
 
 button {
-    outline: none;
-    border: none;
-    background: none;
+  outline: none;
+  border: none;
+  background: none;
 }
 
 footer {
@@ -86,4 +119,3 @@ footer {
     }
   }
 }
-

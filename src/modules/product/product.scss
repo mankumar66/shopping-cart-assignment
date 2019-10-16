@@ -5,15 +5,11 @@
   margin-top: -10px;
   overflow: auto;
   &__aside {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
+    @include flex(1);
     padding: 0 0 0 10px;
     background: $GRAY;
     @media only screen and (max-width: 768px) {
-      -webkit-box-flex: auto;
-      -ms-flex: auto;
-      flex: auto;
+      @include flexAuto();
     }
     @media only screen and (max-width: 600px) {
       display: none;
@@ -43,19 +39,14 @@
       display: none;
       @media only screen and (max-width: 600px) {
         color: $WHITE;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
+        @include displayFlex();
         background: $PINK;
         padding: 10px;
       }
     }
     &__product {
       padding: 10px;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
+      @include flexDirCol();
       h4 {
         margin-bottom: 0;
         height: 70px;
@@ -65,10 +56,7 @@
         }
       }
       &__desc {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
+        @include flexDirCol();
         img {
           width: $FULL_WIDTH;
           @media only screen and (max-width: 768px) {
@@ -85,19 +73,12 @@
         }
       }
       &__price-desc {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
+        @include flexDirRow();
+        @include justifyContentSpcBtn();
         -webkit-box-align: end;
         -ms-flex-align: end;
         align-items: flex-end;
-        -webkit-box-flex: 1;
-        -ms-flex: auto;
-        flex: auto;
+        @include flexAuto();
         padding: 5px;
         border-bottom: 1px solid gray;
         border-bottom-style: dashed;
@@ -114,19 +95,13 @@
           span {
             display: none;
             @media only screen and (max-width: 768px) {
-              display: -webkit-box;
-              display: -ms-flexbox;
-              display: flex;
+              @include displayFlex();
             }
           }
           @media only screen and (max-width: 768px) {
             width: $FULL_WIDTH;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
+            @include displayFlex();
+            @include justifyContentCenter();
             padding: 10px;
           }
         }
@@ -136,9 +111,6 @@
 }
 @media only screen and (max-width: 768px) {
   .product-container__section__product__desc {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
+    @include flexDirRow();
   }
 }

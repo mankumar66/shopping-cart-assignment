@@ -42,7 +42,7 @@ templateRoute.get('/register', (req, res, next) => {
 });
 
 /* Post requests */
-templateRoute.post(['/home'], (req, res, next) => {
+templateRoute.post('/home', (req, res, next) => {
     console.log(req.body);
     res.redirect('/home');
 });

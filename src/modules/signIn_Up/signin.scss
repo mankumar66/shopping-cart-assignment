@@ -9,14 +9,9 @@
     }
   }
   &__login-label {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
+    @include flex(1);
+    @include flexDirCol();
     padding: 10px;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
     span {
       @include fontStyle();
       @media only screen and (max-width: 600px) {
@@ -25,15 +20,11 @@
     }
   }
   &__form {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
+    @include flex(1);
     padding: 10px 10px 0 40px;
     margin-bottom: 15px;
     @media only screen and (max-width: 600px) {
-      -webkit-box-flex: 2;
-      -ms-flex: 2;
-      flex: 2;
+      @include flex(2);
     }
     &__err-div {
       color: $RED;
@@ -88,8 +79,7 @@
       }
     }
     button {
-      background-color: $PINK;
-      color: $WHITE;
+      @include buttonStyle();
       padding: 10px;
       margin-top: 25px;
       cursor: pointer;

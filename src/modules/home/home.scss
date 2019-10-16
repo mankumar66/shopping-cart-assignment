@@ -5,9 +5,7 @@ section {
   .slider-container {
     @include separatorStyle();
     position: relative;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+    @include alignItemsCenter();
     &__image-container {
       width: $FULL_WIDTH;
       &__image {
@@ -38,9 +36,7 @@ section {
     }
     &__dots-wrapper {
       position: absolute;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
+      @include justifyContentCenter();
       bottom: 10px;
       width: $FULL_WIDTH;
       @media only screen and (max-width: 600px) {
@@ -68,22 +64,15 @@ section {
     @include separatorStyle();
     margin: auto;
     &__image {
-      -webkit-box-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
+      @include flex(1);
       width: 100px;
       height: 200px;
       -o-object-fit: contain;
       object-fit: contain;
     }
     &__description {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-box-flex: 2;
-      -ms-flex: 2;
-      flex: 2;
+      @include flexDirCol();
+      @include flex(2);
       margin: auto;
       span {
         text-align: center;
@@ -98,8 +87,8 @@ section {
       a {
         margin: 0 auto;
         margin-bottom: 15px;
-        color: #ffffff;
-        background: #d00256;
+        color: $WHITE;
+        background: $PINK;
         padding: 10px;
         @include fontStyle();
       }

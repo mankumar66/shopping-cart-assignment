@@ -3,7 +3,7 @@
         <h1>{{constants.LOGIN_LABEL}}</h1>
         <span>{{constants.LOGIN_BRANDING_LABEL}}</span>
     </div>
-    <form autocomplete="off" id="regForm" class="login-container__form" method="post" action="/home">
+    <form action="/home" id="regForm" class="login-container__form" method="post" autocomplete="off">
         <div id="emailContainer" class="login-container__form__input-container input-container--js">
             <label for="email">{{constants.EMAIL_LABEL}}</label>
             <input type="email" id="email" name="email" placeholder="" name="email" oninput="this.className = ''" />
