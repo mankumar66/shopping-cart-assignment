@@ -1,110 +1,133 @@
-@import "./../main.scss";
+@import "./../theme.scss";
 
+/* Style for mobile view */
 .product-container {
-  @include sectionStyle();
+  margin: auto;
   margin-top: -10px;
-  overflow: auto;
   &__aside {
-    flex: 1;
-    padding: 0 0 0 10px;
-    background: $GRAY;
-    @media only screen and (max-width: 768px) {
-      flex: auto;
-    }
-    @media only screen and (max-width: 600px) {
-      display: none;
-    }
-    &__aside-elem {
-      border-bottom: 1px solid #98949430;
-      a {
-        color: $MEDIUM_GRAY;
-        font-size: medium;
-        text-align: left;
-        width: $FULL_WIDTH;
-        padding: 10px;
-        &.active, &:hover {
-          color: $PINK;
-        }
-      }
-    }
+    display: none;
   }
   &__section {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    @media only screen and (max-width: 768px) {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     select {
-      display: none;
-      @media only screen and (max-width: 600px) {
-        color: $WHITE;
-        display: flex;
-        background: $PINK;
-        padding: 10px;
-      }
+      color: $WHITE;
+      display: flex;
+      background: $PINK;
+      padding: 10px;
     }
     &__product {
       padding: 10px;
       flex-direction: column;
       h4 {
-        margin-bottom: 0;
-        height: 70px;
-        @media only screen and (max-width: 768px) {
-          margin-bottom: 0;
-          height: 50px;
-        }
+        height: 50px;
       }
       &__desc {
-        flex-direction: column;
+        flex-direction: row;
         img {
-          width: $FULL_WIDTH;
-          @media only screen and (max-width: 768px) {
-            width: $HALF_WIDTH;
-          }
+          width: $HALF_WIDTH;
         }
         p {
           background: $GRAY;
           padding: 5px;
           @include fontStyle();
-          @media only screen and (max-width: 768px) {
-            margin: 0;
-          }
+          margin: 0;
         }
       }
       &__price-desc {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-end;
-        flex: auto;
         padding: 5px;
         border-bottom: 1px solid gray;
         border-bottom-style: dashed;
-        @media only screen and (max-width: 768px) {
-          span {
-            display: none;
-          }
+        span {
+          display: none;
         }
         button {
-         padding: 5px 15px;
+          width: $FULL_WIDTH;
+          padding: 10px;
+          display: flex;
+          justify-content: center;
           span {
-            display: none;
-            @media only screen and (max-width: 768px) {
-              display: flex;
-            }
-          }
-          @media only screen and (max-width: 768px) {
-            width: $FULL_WIDTH;
             display: flex;
-            justify-content: center;
-            padding: 10px;
           }
         }
       }
     }
   }
 }
-@media only screen and (max-width: 768px) {
-  .product-container__section__product__desc {
-    flex-direction: row;
+
+/* Media queries for portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .product-container {
+    &__aside {
+      display: flex;
+      flex-direction: column;
+      padding: 0 0 0 10px;
+      background: $GRAY;
+      &__aside-elem {
+        border-bottom: 1px solid lighten($MEDIUM_GRAY, 15%);
+        a {
+          color: $MEDIUM_GRAY;
+          font-size: medium;
+          text-align: left;
+          width: $FULL_WIDTH;
+          padding: 10px;
+          &.active,
+          &:hover {
+            color: $PINK;
+          }
+        }
+      }
+    }
+    &__section {
+      select {
+        display: none;
+      }
+      &__product__desc {
+        flex: 1;
+      }
+    }
+  }
+}
+
+/* Media queries for laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .product-container {
+    width: $DESKTOP_WIDTH;
+    &__aside {
+      flex: 1;
+    }
+    &__section {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      &__product {
+        h4 {
+          height: 70px;
+        }
+        &__desc {
+          flex-direction: column;
+          img {
+            width: $FULL_WIDTH;
+          }
+        }
+        &__price-desc {
+          justify-content: space-between;
+          align-items: center;
+          span {
+            display: flex;
+          }
+          button {
+            width: fit-content;
+            span {
+              display: none;
+            }
+          }
+        }
+        &__desc {
+          flex-direction: column;
+          img {
+            width: $FULL_WIDTH;
+          }
+        }
+      }
+    }
   }
 }

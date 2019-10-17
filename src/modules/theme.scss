@@ -6,8 +6,8 @@ $MEDIUM_GRAY: #989494;
 $DARK_GRAY: #717171;
 $PINK: #d00256;
 $SKY_BLUE: #50dae3;
-$AMBER : #ffdddd;
-$RED: #FF0000;
+$AMBER: #ffdddd;
+$RED: #ff0000;
 
 /* Referance Width and Height*/
 $DESKTOP_WIDTH: 80%;
@@ -15,3 +15,12 @@ $HALF_WIDTH: 50%;
 $FULL_WIDTH: 100%;
 $FULL_HEIGHT: 100%;
 
+@mixin fontStyle() {
+  font-weight: 600;
+  font-size: small;
+}
+
+@mixin separatorStyle() {
+  border-bottom: 10px solid transparent;
+  border-image: url(/static/images/separator.png) 13;
+}

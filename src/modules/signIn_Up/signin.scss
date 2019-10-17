@@ -1,44 +1,39 @@
-@import "./../main.scss";
+@import "./../theme.scss";
 
+/* Style for mobile view */
 .login-container {
   margin: auto;
-  @include half_width();
-  @media only screen and (max-width: 600px) {
+  flex-direction: column;
+  padding: 15px;
+  &__login-label {
+    flex-direction: column;
     h1 {
       font-size: medium;
     }
-  }
-  &__login-label {
-    flex: 1;
-    flex-direction: column;
-    padding: 10px;
     span {
       @include fontStyle();
     }
   }
   &__form {
-    flex: 1;
-    padding: 10px 10px 0 40px;
-    margin-bottom: 15px;
-    @media only screen and (max-width: 600px) {
-      flex: 2;
-    }
-    &__err-div {
-      color: $RED;
-      @media only screen and (max-width: 600px) {
-        font-size: small;
-      }
-    }
+    margin: 15px 0;
     &__input-container {
       margin-bottom: 8px;
       position: relative;
+      label {
+        font-size: 16px;
+        color: darken($GRAY, 15%);
+        position: absolute;
+        transform-origin: top left;
+        transform: translate(0, 16px) scale(1);
+        transition: all 0.1s ease-in-out;
+      }
       input {
         border: none;
-        border-bottom: solid 1.5px darken($GRAY, 15%);
+        width: $FULL_WIDTH;
+        border-bottom: solid 1.5px gray;
         font-size: 16px;
         outline: 0;
         padding: 20px 0 10px;
-        width: $FULL_WIDTH;
         &:focus {
           outline: none !important;
           border-bottom: solid 1.5px $SKY_BLUE;
@@ -47,14 +42,6 @@
           background-color: $AMBER;
         }
       }
-      label {
-        font-size: 16px;
-        color: darken($GRAY, 15%);
-        position: absolute;
-        transform-origin: top left;
-        transform: translate(0, 16px) scale(1);
-        transition: all 0.1s ease-in-out;
-}
       &.active {
         label {
           transform: translate(0, 4px) scale(0.95);
@@ -68,5 +55,36 @@
       margin-top: 25px;
       width: $FULL_WIDTH;
     }
+    &__err-div {
+      color: $RED;
+      font-size: small;
+    }
+  }
+}
+
+/* Media queries for portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .login-container {
+    flex-direction: row;
+    &__login-label {
+      flex: 1;
+      h1 {
+        font-size: 2em;
+      }
+    }
+    &__form {
+      flex: 1;
+      margin: 0; 
+      &__err-div {
+        font-size: medium;
+      }
+    }
+  }
+}
+
+/* Media queries for laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .login-container {
+    width: $HALF_WIDTH;
   }
 }

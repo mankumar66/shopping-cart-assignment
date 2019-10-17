@@ -1,7 +1,7 @@
-@import "./../main.scss";
+@import "./../theme.scss";
 
+/* Style for mobile view */
 section {
-  @include sectionStyle();
   .slider-container {
     @include separatorStyle();
     position: relative;
@@ -22,15 +22,11 @@ section {
       padding: 8px;
       &#arrow-left {
         left: 0;
-        @media only screen and (max-width: 600px) {
-          display: none;
-        }
+        display: none;
       }
       &#arrow-right {
         right: 0;
-        @media only screen and (max-width: 600px) {
-          display: none;
-        }
+        display: none;
       }
     }
     &__dots-wrapper {
@@ -38,9 +34,7 @@ section {
       justify-content: center;
       bottom: 10px;
       width: $FULL_WIDTH;
-      @media only screen and (max-width: 600px) {
-        margin: 0 0 -30px 0;
-      }
+      margin: 0 0 -30px 0;
       &__dot {
         cursor: pointer;
         height: 5px;
@@ -95,8 +89,30 @@ section {
     &:last-child {
       border-bottom: none;
     }
-    @media only screen and (min-width: 769px) {
-      width: $DESKTOP_WIDTH;
+  }
+}
+
+/* Media queries for portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  section {
+    .slider-container {
+      &__nav-links {
+        &#arrow-left,
+        &#arrow-right {
+          display: flex;
+        }
+      }
+      &__dots-wrapper{
+        margin: -10px 0 0 0;
+      }
     }
+  }
+}
+
+/* Media queries for laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  section {
+    width: $DESKTOP_WIDTH;
+    margin: auto;
   }
 }

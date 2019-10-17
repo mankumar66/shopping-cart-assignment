@@ -1,186 +1,9 @@
-@import "./../main.scss";
+@import "./../theme.scss";
 
-h4 {
-  margin: 0;
-}
-ul {
-  padding: 10px;
-  margin: 0;
-  overflow: auto;
-}
-
-.overlay {
-  position: fixed;
-  display: none;
-  width: $FULL_WIDTH;
-  height: $FULL_HEIGHT;
-  top: 0px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 2;
-  @media only screen and (max-width: 768px) {
-    top: 70px;
-  }
-  @media only screen and (max-width: 600px) {
-    top: 50px;
-  }
-  &__cart-detail-view {
-    flex-direction: column;
-    position: relative;
-    background: $GRAY;
-    top: 70px;
-    width: 30%;
-    left: 60%;
-    height: calc(100% - 70px);
-    @media only screen and (max-width: 768px) {
-      top: 0;
-      left: 0;
-      width: $FULL_WIDTH;
-    }
-    @media only screen and (max-width: 600px) {
-      height: calc(100% - 50px);
-    }
-    .cartHeader {
-      justify-content: space-between;
-      color: $WHITE;
-      background: $BLACK;
-      width: $FULL_WIDTH;
-      @media only screen and (max-width: 768px) {
-        background: $WHITE;
-        color: $BLACK;
-      }
-      button {
-        padding: 10px 20px;
-        background: none;
-        &:hover {
-          transform: scale(1.5);
-        }
-      }
-      h4 {
-        padding: 15px;
-        span {
-          font-weight: 400;
-          font-size: small;
-        }
-      }
-    }
-    .cartButton {
-      flex-direction: column;
-      align-items: center;
-      background: $WHITE;
-      justify-content: center;
-      height: 12%;
-      width: auto;
-      padding: 10px;
-      #promoSpan {
-        font-size: small;
-        padding-bottom: 10px;
-      }
-      button {
-        width: 95%;
-        padding: 12px;
-        display: flex;
-        justify-content: space-between;
-      }
-    }
-    #cartEmpty {
-      flex-direction: column;
-      background: $WHITE;
-      color: $BLACK;
-      justify-content: space-between;
-      height: $FULL_HEIGHT;
-      .cartEmptyText {
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        height: 88%;
-      }
-      button {
-        justify-content: center;
-      }
-    }
-    #listItemContainer {
-      height: 88%;
-    }
-    ul {
-      display: flex;
-      width: $FULL_WIDTH;
-      align-items: center;
-      flex-direction: column;
-      margin: 0;
-      .lowestPriceBranding {
-        align-items: center;
-        width: 90%;
-        padding: 10px;
-        border-radius: 6px;
-        background: $WHITE;
-        margin-top: 10px;
-        @media only screen and (max-width: 768px) {
-          width: 98%;
-        }
-        img {
-          width: 25%;
-          margin-right: 20px;
-          @media only screen and (max-width: 768px) {
-            width: 20%;
-          }
-        }
-      }
-      @media only screen and (max-width: 768px) {
-        width: $FULL_WIDTH;
-      }
-    }
-    #cartItems {
-      flex-direction: column;
-      height: calc(100vh - 120px);
-      li {
-        width: $FULL_WIDTH;
-        flex-direction: row;
-        display: flex;
-        padding: 10px;
-        background: $WHITE;
-        border-bottom: 1px solid $GRAY;
-        img {
-          width: 20%;
-          flex: 1;
-          @media only screen and (max-width: 768px) and (min-width: 600px) {
-            width: 10%;
-            flex: 0;
-          }
-        }
-        .itemDetail {
-          flex-direction: column;
-          padding: 5px 10px;
-          justify-content: space-around;
-          flex: auto;
-          button {
-            border-radius: 50%;
-          }
-          button,
-          span {
-            margin-right: 5px;
-          }
-        }
-        .itemCost {
-          padding: 5px 10px;
-          align-items: flex-end;
-          span {
-            font-weight: 600;
-          }
-        }
-      }
-    }
-  }
-}
-
+/* Style for mobile view */
 .header {
-  @include sectionStyle();
-  height: 70px;
-  @media only screen and (max-width: 600px) {
-    height: 50px;
-  }
+  width: $FULL_WIDTH;
+  height: 50px;
   &__logo {
     flex: 1;
     height: 96%;
@@ -188,10 +11,7 @@ ul {
   }
   &__main-content {
     flex: 9;
-    justify-content: space-between;
-    @media only screen and (max-width: 600px) {
-      justify-content: flex-end;
-    }
+    justify-content: flex-end;
     &__nav {
       margin-left: 3%;
       height: $FULL_HEIGHT;
@@ -200,9 +20,7 @@ ul {
         padding: 4px;
         margin: 35% 20% 0 20%;
         @include fontStyle();
-        @media only screen and (max-width: 600px) {
-          display: none;
-        }
+        display: none;
       }
     }
     &__right-items {
@@ -211,15 +29,13 @@ ul {
       justify-content: space-between;
       &__login-links {
         justify-content: flex-end;
-        @media only screen and (max-width: 600px) {
-          display: none;
-        }
+        display: none;
       }
-      a,
-      &__cart__item-description {
-        @include fontStyle();
-        padding: 3px 5px 2px 5px;
-      }
+    }
+    a,
+    &__cart__item-description {
+      @include fontStyle();
+      padding: 3px 5px 2px 5px;
     }
     &__cart {
       flex-direction: row;
@@ -227,14 +43,34 @@ ul {
       background-color: $GRAY;
       padding: 6px;
       cursor: pointer;
-      @media only screen and (max-width: 600px) {
-        height: $FULL_HEIGHT;
-      }
+      height: $FULL_HEIGHT;
       &__image {
         width: 15px;
         height: 25px;
         flex: 1;
       }
     }
+  }
+}
+
+/* Media queries for portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .header {
+    height: 70px;
+    &__main-content {
+      justify-content: space-between;
+      &__nav__links,
+      &__right-items__login-links {
+        display: flex;
+      }
+    }
+  }
+}
+
+/* Media queries for laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .header {
+    width: $DESKTOP_WIDTH;
+    margin: auto;
   }
 }

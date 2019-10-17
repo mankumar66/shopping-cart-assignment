@@ -1,34 +1,5 @@
 @import "./theme.scss";
 
-@mixin desktop_width() {
-  @media only screen and (min-width: 769px) {
-    width: $DESKTOP_WIDTH;
-  }
-  @media only screen and (max-width: 768px) {
-    width: $FULL_WIDTH;
-  }
-}
-@mixin half_width() {
-  @media only screen and (min-width: 769px) {
-    width: $HALF_WIDTH;
-  }
-  @media only screen and (max-width: 768px) {
-    width: $FULL_WIDTH;
-  }
-}
-@mixin fontStyle() {
-  font-weight: 600;
-  font-size: small;
-}
-@mixin sectionStyle() {
-  @include desktop_width();
-  margin: auto;
-}
-@mixin separatorStyle() {
-  border-bottom: 10px solid transparent;
-  border-image: url(/static/images/separator.png) 13;
-}
-
 body {
   font-family: "Dosis", "Arial";
   font-weight: 400;
@@ -44,6 +15,10 @@ body {
       transform: scale(1.1);
     }
   }
+}
+
+h4 {
+  margin: 0;
 }
 
 div,
@@ -74,10 +49,12 @@ footer {
   background: $GRAY;
   padding: 10px 0;
   p {
-    @include sectionStyle();
+    margin: auto;
+    width: $DESKTOP_WIDTH;
     @include fontStyle();
     @media only screen and (max-width: 768px) {
       text-align: center;
+      width: $FULL_WIDTH;
     }
   }
 }
