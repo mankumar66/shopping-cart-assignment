@@ -17,12 +17,12 @@
 </section>
 <section>
     {{#each categoryContent }}
-    <div class="category-list-item">
-        <img tabindex="0" data-index="{{id}}" class="category-list-item__image" alt="{{key}}" src="{{imageUrl}}" />
+    <div  tabindex="0" class="category-list-item">
+        <img data-index="{{id}}" class="category-list-item__image" alt="{{key}}" src="{{imageUrl}}" />
         <div class="category-list-item__description">
-            <span tabindex="0">{{name}}</span>
-            <span tabindex="0">{{description}}</span>
-            <a href="">Explore {{key}}</a>
+            <span>{{name}}</span>
+            <span>{{description}}</span>
+            <a href="/products">Explore {{key}}</a>
         </div>
     </div>
     {{/each}}

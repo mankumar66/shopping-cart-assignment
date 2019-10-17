@@ -46,6 +46,7 @@ if (rightArrow) rightArrow.addEventListener("click", changeSlide);
 if (dots) {
   for (let i = 0; i < dots.length; i++) {
     dots[i].addEventListener("click", () => currentSlide(i));
+    dots[i].addEventListener("keypress", () => currentSlide(i));
   }
 }
 

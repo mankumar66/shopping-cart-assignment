@@ -1,9 +1,9 @@
 <div class="login-container">
-    <div class="login-container__login-label">
-        <h1 tabindex="0">{{constants.SIGN_UP_LABEL}}</h1>
-        <span tabindex="0">{{constants.SIGN_UP_BRANDING_LABEL}}</span>
+    <div tabindex="0" class="login-container__login-label">
+        <h1>{{constants.SIGN_UP_LABEL}}</h1>
+        <span>{{constants.SIGN_UP_BRANDING_LABEL}}</span>
     </div>
-    <form action="/home" id="regForm" class="login-container__form" method="post" autocomplete="off">
+    <form tabindex="0" action="/home" id="regForm" class="login-container__form" method="post" autocomplete="off">
         <div class="login-container__form__input-container input-container--js">
             <label for="fName">{{constants.FIRST_NAME_LABEL}}</label>
             <input type="text" id="fName" placeholder="" name="first name" oninput="this.className = ''" />

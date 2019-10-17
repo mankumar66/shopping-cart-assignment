@@ -22,14 +22,13 @@
         text-align: left;
         width: $FULL_WIDTH;
         padding: 10px;
-        &.active {
+        &.active, &:hover {
           color: $PINK;
         }
       }
     }
   }
   &__section {
-    display: -ms-grid;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     @media only screen and (max-width: 768px) {
@@ -86,10 +85,7 @@
           }
         }
         button {
-          background: $PINK;
-          padding: 5px 15px;
-          color: $WHITE;
-          border: none;
+         padding: 5px 15px;
           span {
             display: none;
             @media only screen and (max-width: 768px) {

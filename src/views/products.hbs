@@ -13,11 +13,11 @@
             {{/each}}
         </select>
         {{#each productContent}}
-        <div class="product-container__section__product product--js {{category}}">
-            <h4 tabindex="0">{{name}}</h4>
+        <div tabindex="0" class="product-container__section__product product--js {{category}}">
+            <h4>{{name}}</h4>
             <div class="product-container__section__product__desc">
-                <img tabindex="0" src="{{imageURL}}" alt="image" />
-                <p tabindex="0">{{description}}</p>
+                <img src="{{imageURL}}" alt="image" />
+                <p>{{description}}</p>
             </div>
             <div class="product-container__section__product__price-desc">
                 <span tabindex="0">MRP Rs.{{price}}</span>

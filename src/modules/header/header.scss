@@ -20,7 +20,6 @@ ul {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
-  cursor: pointer;
   @media only screen and (max-width: 768px) {
     top: 70px;
   }
@@ -53,8 +52,11 @@ ul {
         color: $BLACK;
       }
       button {
-        color: $WHITE;
         padding: 10px 20px;
+        background: none;
+        &:hover {
+          transform: scale(1.5);
+        }
       }
       h4 {
         padding: 15px;
@@ -69,7 +71,7 @@ ul {
       align-items: center;
       background: $WHITE;
       justify-content: center;
-      height: auto;
+      height: 12%;
       width: auto;
       padding: 10px;
       #promoSpan {
@@ -79,7 +81,6 @@ ul {
       button {
         width: 95%;
         padding: 12px;
-        @include buttonStyle();
         display: flex;
         justify-content: space-between;
       }
@@ -94,17 +95,18 @@ ul {
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        height: 92%;
+        height: 88%;
       }
       button {
         justify-content: center;
       }
     }
     #listItemContainer {
-      height: calc(92% - 30px);
+      height: 88%;
     }
     ul {
       display: flex;
+      width: $FULL_WIDTH;
       align-items: center;
       flex-direction: column;
       margin: 0;
@@ -127,18 +129,14 @@ ul {
         }
       }
       @media only screen and (max-width: 768px) {
-        li {
-          width: $FULL_WIDTH;
-        }
-      }
-      @media only screen and (max-width: 768px) {
         width: $FULL_WIDTH;
       }
     }
     #cartItems {
       flex-direction: column;
-      height: $FULL_HEIGHT;
+      height: calc(100vh - 120px);
       li {
+        width: $FULL_WIDTH;
         flex-direction: row;
         display: flex;
         padding: 10px;
@@ -147,19 +145,17 @@ ul {
         img {
           width: 20%;
           flex: 1;
-          @media only screen and (max-width: 768px) {
+          @media only screen and (max-width: 768px) and (min-width: 600px) {
             width: 10%;
             flex: 0;
           }
         }
-        #itemDetail {
+        .itemDetail {
           flex-direction: column;
           padding: 5px 10px;
-          -ms-flex-pack: distribute;
           justify-content: space-around;
           flex: auto;
           button {
-            @include buttonStyle();
             border-radius: 50%;
           }
           button,
@@ -230,6 +226,7 @@ ul {
       align-items: center;
       background-color: $GRAY;
       padding: 6px;
+      cursor: pointer;
       @media only screen and (max-width: 600px) {
         height: $FULL_HEIGHT;
       }

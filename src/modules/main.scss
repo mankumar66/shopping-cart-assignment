@@ -20,17 +20,12 @@
   font-weight: 600;
   font-size: small;
 }
-@mixin buttonStyle() {
-  color: $WHITE;
-  background: $PINK;
-}
 @mixin sectionStyle() {
   @include desktop_width();
   margin: auto;
 }
 @mixin separatorStyle() {
   border-bottom: 10px solid transparent;
-  -o-border-image: url(/static/images/separator.png) 13;
   border-image: url(/static/images/separator.png) 13;
 }
 
@@ -44,6 +39,10 @@ body {
   a {
     text-decoration: none;
     color: $BLACK;
+    &:hover {
+      transition: all 0.1s ease-in-out;
+      transform: scale(1.1);
+    }
   }
 }
 
@@ -57,14 +56,18 @@ hr {
   margin: 0;
   height: 10px;
   border: 0;
-  -webkit-box-shadow: 0 10px 10px -10px $GRAY inset;
   box-shadow: 0 10px 10px -10px $GRAY inset;
 }
 
 button {
-  outline: none;
+  color: $WHITE;
+  background: $PINK;
   border: none;
-  background: none;
+  cursor: pointer;
+  &:hover {
+    transition: all 0.1s ease-in-out;
+    transform: scale(1.1);
+  }
 }
 
 footer {
