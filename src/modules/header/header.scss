@@ -6,13 +6,9 @@ h4 {
 ul {
   padding: 10px;
   margin: 0;
-  overflow-y: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  overflow: auto;
 }
-ul::-webkit-scrollbar {
-  display: none;
-}
+
 .overlay {
   position: fixed;
   display: none;
@@ -32,7 +28,7 @@ ul::-webkit-scrollbar {
     top: 50px;
   }
   &__cart-detail-view {
-    @include flexDirCol();
+    flex-direction: column;
     position: relative;
     background: $GRAY;
     top: 70px;
@@ -48,7 +44,7 @@ ul::-webkit-scrollbar {
       height: calc(100% - 50px);
     }
     .cartHeader {
-      @include justifyContentSpcBtn();
+      justify-content: space-between;
       color: $WHITE;
       background: $BLACK;
       width: $FULL_WIDTH;
@@ -69,10 +65,10 @@ ul::-webkit-scrollbar {
       }
     }
     .cartButton {
-      @include flexDirCol();
-      @include alignItemsCenter();
+      flex-direction: column;
+      align-items: center;
       background: $WHITE;
-      @include justifyContentCenter();
+      justify-content: center;
       height: auto;
       width: auto;
       padding: 10px;
@@ -84,45 +80,41 @@ ul::-webkit-scrollbar {
         width: 95%;
         padding: 12px;
         @include buttonStyle();
-        @include displayFlex();
-        @include justifyContentSpcBtn();
+        display: flex;
+        justify-content: space-between;
       }
     }
     #cartEmpty {
-      @include flexDirCol();
+      flex-direction: column;
       background: $WHITE;
       color: $BLACK;
-      @include justifyContentSpcBtn();
+      justify-content: space-between;
       height: $FULL_HEIGHT;
       .cartEmptyText {
-        @include alignItemsCenter();
-        @include justifyContentCenter();
-        @include flexDirCol();
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
         height: 92%;
       }
       button {
-        @include justifyContentCenter();
+        justify-content: center;
       }
     }
     #listItemContainer {
       height: calc(92% - 30px);
     }
     ul {
-      @include displayFlex();
-      @include alignItemsCenter();
-      @include flexDirCol();
+      display: flex;
+      align-items: center;
+      flex-direction: column;
       margin: 0;
       .lowestPriceBranding {
-        @include alignItemsCenter();
+        align-items: center;
         width: 90%;
         padding: 10px;
         border-radius: 6px;
         background: $WHITE;
         margin-top: 10px;
-        -webkit-border-radius: 6px;
-        -moz-border-radius: 6px;
-        -ms-border-radius: 6px;
-        -o-border-radius: 6px;
         @media only screen and (max-width: 768px) {
           width: 98%;
         }
@@ -144,35 +136,31 @@ ul::-webkit-scrollbar {
       }
     }
     #cartItems {
-      @include flexDirCol();
+      flex-direction: column;
       height: $FULL_HEIGHT;
       li {
-        @include flexDirRow();
-        @include displayFlex();
+        flex-direction: row;
+        display: flex;
         padding: 10px;
         background: $WHITE;
         border-bottom: 1px solid $GRAY;
         img {
           width: 20%;
-          @include flex(1);
+          flex: 1;
           @media only screen and (max-width: 768px) {
             width: 10%;
-            @include flex(0);
+            flex: 0;
           }
         }
         #itemDetail {
-          @include flexDirCol();
+          flex-direction: column;
           padding: 5px 10px;
           -ms-flex-pack: distribute;
           justify-content: space-around;
-          @include flexAuto();
+          flex: auto;
           button {
             @include buttonStyle();
             border-radius: 50%;
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            -ms-border-radius: 50%;
-            -o-border-radius: 50%;
           }
           button,
           span {
@@ -181,8 +169,6 @@ ul::-webkit-scrollbar {
         }
         .itemCost {
           padding: 5px 10px;
-          -webkit-box-align: end;
-          -ms-flex-align: end;
           align-items: flex-end;
           span {
             font-weight: 600;
@@ -200,16 +186,14 @@ ul::-webkit-scrollbar {
     height: 50px;
   }
   &__logo {
-    @include flex(1);
+    flex: 1;
     height: 96%;
     padding: 2px;
   }
   &__main-content {
-    @include flex(9);
-    @include justifyContentSpcBtn();
+    flex: 9;
+    justify-content: space-between;
     @media only screen and (max-width: 600px) {
-      -webkit-box-pack: end;
-      -ms-flex-pack: end;
       justify-content: flex-end;
     }
     &__nav {
@@ -227,11 +211,9 @@ ul::-webkit-scrollbar {
     }
     &__right-items {
       width: 100px;
-      @include flexDirCol();
-      @include justifyContentSpcBtn();
+      flex-direction: column;
+      justify-content: space-between;
       &__login-links {
-        -webkit-box-pack: end;
-        -ms-flex-pack: end;
         justify-content: flex-end;
         @media only screen and (max-width: 600px) {
           display: none;
@@ -244,8 +226,8 @@ ul::-webkit-scrollbar {
       }
     }
     &__cart {
-      @include flexDirRow();
-      @include alignItemsCenter();
+      flex-direction: row;
+      align-items: center;
       background-color: $GRAY;
       padding: 6px;
       @media only screen and (max-width: 600px) {
@@ -254,7 +236,7 @@ ul::-webkit-scrollbar {
       &__image {
         width: 15px;
         height: 25px;
-        @include flex(1);
+        flex: 1;
       }
     }
   }

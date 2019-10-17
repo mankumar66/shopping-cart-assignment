@@ -2,12 +2,12 @@ import { getPostRequest } from '../../helper/clientApi';
 import apiConst from './../../utils/apiConst';
 import constants from './../../utils/locales/en';
 
-let minusBtn = document.getElementsByClassName("minusBtn--js");
-let cartDiv = document.getElementById("cart--js");
-let plusBtn = document.getElementsByClassName("plusBtn--js");
-let cartContainer = document.getElementById("cart-detail-view--js");
-let overlay = document.getElementById("overlay--js");
-
+let minusBtn = document.getElementsByClassName("minusBtn--js"),
+  cartDiv = document.getElementById("cart--js"),
+  plusBtn = document.getElementsByClassName("plusBtn--js"),
+  cartContainer = document.getElementById("cart-detail-view--js"),
+  overlay = document.getElementById("overlay--js"),
+  body = document.getElementsByTagName("body");
 
 const dynamicCartHTML = (apiRes) => {
   return `<div class="cartHeader" id="cartHeader--js">
@@ -69,7 +69,10 @@ const hideCartOverlay = () => {
   let closeOverlayBtn = document.getElementsByClassName("closeOverlay--js");
   if (closeOverlayBtn) {
     for (let i = 0; i < closeOverlayBtn.length; i++) {
-      closeOverlayBtn[i].addEventListener("click", () => overlay.style.display = "none");
+      closeOverlayBtn[i].addEventListener("click", () => {
+        overlay.style.display = "none";
+        body[0].style.overflowY = "scroll";
+      })
     }
   }
 }
@@ -92,7 +95,7 @@ const renderCart = (res) => {
 }
 
 const showCartOverlay = () => {
-  getPostRequest(apiConst.GET_CART_API,{method: constants.GET_METHOD})
+  getPostRequest(apiConst.GET_CART_API, { method: constants.GET_METHOD })
     .then(res => {
       if (res.length === 0 || res.totalItems === 0) {
         cartContainer.innerHTML = emptyCartHTML;
@@ -105,12 +108,13 @@ const showCartOverlay = () => {
     .catch(err => console.log(err))
   if (overlay) {
     overlay.style.display = "flex";
+    body[0].style.overflow = "hidden";
   }
 }
 
 const decreaseCartCount = (e) => {
   let data = { "id": e.target.parentNode.id };
-  getPostRequest(apiConst.REMOVE_FROM_CART_API,{method: constants.POST_METHOD, data:data})
+  getPostRequest(apiConst.REMOVE_FROM_CART_API, { method: constants.POST_METHOD, data: data })
     .then(res => {
       if (res.totalItems === 0) {
         if (document.getElementById("cartItems")) {
@@ -126,7 +130,7 @@ const decreaseCartCount = (e) => {
 
 const increaseCartCount = (e) => {
   let data = { "id": e.target.parentNode.id };
-  getPostRequest(apiConst.ADD_TO_CART_API,{method: constants.POST_METHOD, data:data})
+  getPostRequest(apiConst.ADD_TO_CART_API, { method: constants.POST_METHOD, data: data })
     .then(res => {
       renderCart(res.cartItems);
       if (document.getElementById("itemCount")) {

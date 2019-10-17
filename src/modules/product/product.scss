@@ -5,11 +5,11 @@
   margin-top: -10px;
   overflow: auto;
   &__aside {
-    @include flex(1);
+    flex: 1;
     padding: 0 0 0 10px;
     background: $GRAY;
     @media only screen and (max-width: 768px) {
-      @include flexAuto();
+      flex: auto;
     }
     @media only screen and (max-width: 600px) {
       display: none;
@@ -39,14 +39,14 @@
       display: none;
       @media only screen and (max-width: 600px) {
         color: $WHITE;
-        @include displayFlex();
+        display: flex;
         background: $PINK;
         padding: 10px;
       }
     }
     &__product {
       padding: 10px;
-      @include flexDirCol();
+      flex-direction: column;
       h4 {
         margin-bottom: 0;
         height: 70px;
@@ -56,7 +56,7 @@
         }
       }
       &__desc {
-        @include flexDirCol();
+        flex-direction: column;
         img {
           width: $FULL_WIDTH;
           @media only screen and (max-width: 768px) {
@@ -73,12 +73,10 @@
         }
       }
       &__price-desc {
-        @include flexDirRow();
-        @include justifyContentSpcBtn();
-        -webkit-box-align: end;
-        -ms-flex-align: end;
+        flex-direction: row;
+        justify-content: space-between;
         align-items: flex-end;
-        @include flexAuto();
+        flex: auto;
         padding: 5px;
         border-bottom: 1px solid gray;
         border-bottom-style: dashed;
@@ -95,13 +93,13 @@
           span {
             display: none;
             @media only screen and (max-width: 768px) {
-              @include displayFlex();
+              display: flex;
             }
           }
           @media only screen and (max-width: 768px) {
             width: $FULL_WIDTH;
-            @include displayFlex();
-            @include justifyContentCenter();
+            display: flex;
+            justify-content: center;
             padding: 10px;
           }
         }
@@ -111,6 +109,6 @@
 }
 @media only screen and (max-width: 768px) {
   .product-container__section__product__desc {
-    @include flexDirRow();
+    flex-direction: row;
   }
 }

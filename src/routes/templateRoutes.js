@@ -4,8 +4,8 @@ const express = require('express'),
     api = require('../helper/xhr'),
     apiConsts = require('./../utils/apiConst'),
     constants = require('./../utils/locales/en');
-    
-    
+
+
 /* GET requests */
 templateRoute.get(['/', '/home'], (req, res, next) => {
     Promise.all([
@@ -24,21 +24,21 @@ templateRoute.get('/products', (req, res, next) => {
         api(apiConsts.GET_CATEGORIES_API),
         api(apiConsts.GET_CART_API)
     ]).then(([productContent, categoryContent, cart]) => {
-        res.render('products', { productContent, categoryContent, cart, constants})
+        res.render('products', { productContent, categoryContent, cart, constants })
     })
         .catch((err) => res.send(constants.API_ERROR));
 });
 
 templateRoute.get('/login', (req, res, next) => {
     api(apiConsts.GET_CART_API)
-    .then(cart => res.render('login', {cart, constants}))
-    .catch((err) => res.send(constants.API_ERROR));
+        .then(cart => res.render('login', { cart, constants }))
+        .catch((err) => res.send(constants.API_ERROR));
 });
 
 templateRoute.get('/register', (req, res, next) => {
     api(apiConsts.GET_CART_API)
-    .then(cart => res.render('registration', {cart, constants}))
-    .catch((err) => res.send(constants.API_ERROR));
+        .then(cart => res.render('registration', { cart, constants }))
+        .catch((err) => res.send(constants.API_ERROR));
 });
 
 /* Post requests */
