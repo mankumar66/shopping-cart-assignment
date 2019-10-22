@@ -3,30 +3,30 @@
         <h1>{{constants.SIGN_UP_LABEL}}</h1>
         <span>{{constants.SIGN_UP_BRANDING_LABEL}}</span>
     </div>
-    <form action="/home" id="regForm" class="login-container__form" method="post" autocomplete="off">
+    <form action="/home" id="form" class="login-container__form" method="post" autocomplete="off">
         <div class="login-container__form__input-container input-container--js">
             <label for="fName">{{constants.FIRST_NAME_LABEL}}</label>
-            <input type="text" id="fName" placeholder="" name="first name" oninput="this.className = ''" />
+            <input type="text" placeholder="" name="first name" oninput="this.className = ''" />
         </div>
 
         <div class="login-container__form__input-container input-container--js">
             <label for="lName">{{constants.LAST_NAME_LABEL}}</label>
-            <input type="text" id="lName" placeholder="" name="last name" oninput="this.className = ''" />
+            <input type="text" placeholder="" name="last name" oninput="this.className = ''" />
         </div>
 
         <div class="login-container__form__input-container input-container--js">
             <label for="email">{{constants.EMAIL_LABEL}}</label>
-            <input type="email" id="email" placeholder="" name="email" oninput="this.className = ''" />
+            <input type="email" placeholder="" name="email" oninput="this.className = ''" />
         </div>
 
-        <div id="pswd-container--js" class="login-container__form__input-container input-container--js">
+        <div class="login-container__form__input-container input-container--js">
             <label for="password">{{constants.PASSWORD_LABEL}}</label>
-            <input type="password" id="password" placeholder="" name="password" oninput="this.className = ''" />
+            <input type="password" placeholder="" name="password" oninput="this.className = ''" />
         </div>
 
-        <div id="cnfmpswd-container--js" class="login-container__form__input-container input-container--js">
+        <div class="login-container__form__input-container input-container--js">
             <label for="cnfmPassword">{{constants.CNFM_PASSWORD_LABEL}}</label>
-            <input type="password" id="cnfmPassword" placeholder="" oninput="this.className = ''" />
+            <input type="password" name="cnfmPassword" placeholder="" oninput="this.className = ''" />
         </div>
         <div id="error-container--js" class="login-container__form__err-div"></div>
         <button id="submit-button--js" type="button">{{constants.SIGN_UP_LABEL}}</button>

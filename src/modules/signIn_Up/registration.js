@@ -1,16 +1,16 @@
 import constants from './../../utils/locales/en';
 
-const cnfmPasswordField = document.getElementById("cnfmpswd-container--js"),
-  passwordField = document.getElementById("pswd-container--js"),
-  submitBtn = document.getElementById("submit-button--js"),
+const submitBtn = document.getElementById("submit-button--js"),
   mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
   pswdFormat = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,15}$/,
-  cnfmPasswordDiv = document.getElementById("cnfmPassword"),
+  cnfmPasswordDiv = document.getElementsByName("cnfmPassword"),
   errorContainer = document.getElementById('error-container--js');
 
 const validateForm = () => {
   let inputFields, i, valid = true;
   inputFields = document.getElementsByTagName("input");
+  const cnfmPasswordFieldText = cnfmPasswordDiv.value,
+  passwordFieldText = document.getElementsByName("password").value;
   for (i = 0; i < inputFields.length; i++) {
     if (inputFields[i].value == "") {
       // add an "invalid" class to the field
@@ -36,15 +36,11 @@ const validateForm = () => {
       }
     }
   }
-  if (cnfmPasswordField && passwordField) {
-    const cnfmPasswordFieldText = cnfmPasswordDiv.value,
-      passwordFieldText = document.getElementById("password").value;
-    if (cnfmPasswordFieldText !== passwordFieldText && valid === true) {
-      cnfmPasswordDiv.focus();
-      cnfmPasswordDiv.className += " invalid"
-      errorContainer.innerHTML = constants.PASSWORD_MISMATCH_ERROR;
-      valid = false;
-    }
+  if (cnfmPasswordFieldText !== passwordFieldText && valid === true) {
+    cnfmPasswordDiv.focus();
+    cnfmPasswordDiv.className += " invalid"
+    errorContainer.innerHTML = constants.PASSWORD_MISMATCH_ERROR;
+    valid = false;
   }
   return valid;
 };
@@ -52,7 +48,7 @@ const validateForm = () => {
 
 const handleSubmit = () => {
   if (validateForm()) {
-    document.getElementById("regForm").submit();
+    document.getElementById("form").submit();
   }
 }
 if (submitBtn) submitBtn.addEventListener("click", handleSubmit);
