@@ -137,7 +137,7 @@
 }
 
 /* Media queries for portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: $TABLET_MEDIA_WIDTH) {
   .overlay {
     &__cart-detail-view {
       top: 70px;
@@ -151,7 +151,7 @@
 }
 
 /* Media queries for laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: $DESKTOP_MEDIA_WIDTH) {
   .overlay {
     margin: auto;
     &__cart-detail-view {

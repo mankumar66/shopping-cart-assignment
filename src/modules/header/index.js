@@ -10,13 +10,13 @@ let minusBtn = document.getElementsByClassName("minusBtn--js"),
   body = document.getElementsByTagName("body");
 
 const dynamicCartHTML = (apiRes) => {
-  return `<div tabindex="0" class="overlay__cart-detail-view__cart-header" id="cartHeader--js">
+  return `<div class="overlay__cart-detail-view__cart-header" id="cartHeader--js">
   <h4>${constants.CART_HEADER_LABEL} <span>(${apiRes.totalItems} ${constants.CART_ITEM_LABEL})</span></h4>
   <button aria-label="Close" class="closeOverlay--js">x</button>
   </div>
-  <div tabindex="0" id="cartItems">
+  <div id="cartItems">
     <div id="listItemContainer"></div>
-  <div tabindex="0" class="cartButton">
+  <div class="cartButton">
     <span id="promoSpan">${constants.CART_PROMO_LABEL}</span>
     <button class="closeOverlay--js">
       <span>${constants.PROCEED_CHECKOUT_LABEL}</span>
@@ -29,7 +29,7 @@ const dynamicCartHTML = (apiRes) => {
 const liListItems = (apiRes) => {
   let ulItem = document.createElement("ul");
   for (var key in apiRes.items) {
-    ulItem.innerHTML += `<li tabindex="0"><img src="${apiRes.items[key].item.imageURL}" alt="{${apiRes.items[key].item.name}" />
+    ulItem.innerHTML += `<li><img src="${apiRes.items[key].item.imageURL}" alt="{${apiRes.items[key].item.name}" />
     <div class="itemDetail">
       <strong>${apiRes.items[key].item.name}</strong>
       <div id="${apiRes.items[key].item.id}">
@@ -37,14 +37,14 @@ const liListItems = (apiRes) => {
         <span class="itemQuantity">${apiRes.items[key].quantity}</span>
         <button aria-label="Add Item" class="plusBtn--js">+</button>
         <span>X</span>
-        <span tabindex="0">Rs.${apiRes.items[key].item.price}</span>
+        <span>Rs.${apiRes.items[key].item.price}</span>
       </div>
     </div>
     <div class="itemCost">
-      <span tabindex="0">${constants.RS_LABEL}${apiRes.items[key].price}</span>
+      <span>${constants.RS_LABEL}${apiRes.items[key].price}</span>
     </div></li>`
   }
-  ulItem.innerHTML += `<div tabindex="0" class="lowestPriceBranding">
+  ulItem.innerHTML += `<div class="lowestPriceBranding">
                         <img src="/static/images/lowest-price.png" alt="lowest price image" />
                         <span>${constants.PRICE_BRANDING_LABEL}</span>
                       </div>`
@@ -52,11 +52,11 @@ const liListItems = (apiRes) => {
 }
 
 const emptyCartHTML = `
-  <div tabindex="0" class="overlay__cart-detail-view__cart-header" id="cartHeader--js">
+  <div class="overlay__cart-detail-view__cart-header" id="cartHeader--js">
     <h4>${constants.CART_HEADER_LABEL}</h4>
     <button aria-label="Close" class="closeOverlay--js">x</button>
   </div>
-  <div tabindex="0" id="cartEmpty">
+  <div id="cartEmpty">
     <div class="cartEmptyText">
     <h4>${constants.EMPTY_CART_LABEL}</h4>
     <span>${constants.FAV_ITEM_LABEL}</span>

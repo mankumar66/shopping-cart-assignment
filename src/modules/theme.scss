@@ -15,6 +15,10 @@ $HALF_WIDTH: 50%;
 $FULL_WIDTH: 100%;
 $FULL_HEIGHT: 100%;
 
+/* Reference media query breakpoints */
+$TABLET_MEDIA_WIDTH : 600px;
+$DESKTOP_MEDIA_WIDTH : 992px;
+
 /* Common scss binded in mixins */
 @mixin fontStyle() {
   font-weight: 600;
