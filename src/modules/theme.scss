@@ -1,4 +1,4 @@
-/* Referance color codes */
+/* Reference color codes */
 $BLACK: #000000;
 $WHITE: #ffffff;
 $GRAY: #eeeeee;
@@ -9,12 +9,13 @@ $SKY_BLUE: #50dae3;
 $AMBER: #ffdddd;
 $RED: #ff0000;
 
-/* Referance Width and Height*/
+/* Reference Width and Height*/
 $DESKTOP_WIDTH: 80%;
 $HALF_WIDTH: 50%;
 $FULL_WIDTH: 100%;
 $FULL_HEIGHT: 100%;
 
+/* Common scss binded in mixins */
 @mixin fontStyle() {
   font-weight: 600;
   font-size: small;

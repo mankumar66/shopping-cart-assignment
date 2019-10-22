@@ -10,9 +10,9 @@ let minusBtn = document.getElementsByClassName("minusBtn--js"),
   body = document.getElementsByTagName("body");
 
 const dynamicCartHTML = (apiRes) => {
-  return `<div tabindex="0" class="cartHeader" id="cartHeader--js">
+  return `<div tabindex="0" class="overlay__cart-detail-view__cart-header" id="cartHeader--js">
   <h4>${constants.CART_HEADER_LABEL} <span>(${apiRes.totalItems} ${constants.CART_ITEM_LABEL})</span></h4>
-  <button class="closeOverlay--js">x</button>
+  <button aria-label="Close" class="closeOverlay--js">x</button>
   </div>
   <div tabindex="0" id="cartItems">
     <div id="listItemContainer"></div>
@@ -33,9 +33,9 @@ const liListItems = (apiRes) => {
     <div class="itemDetail">
       <strong>${apiRes.items[key].item.name}</strong>
       <div id="${apiRes.items[key].item.id}">
-        <button class="minusBtn--js">-</button>
+        <button aria-label="Remove Item" class="minusBtn--js">-</button>
         <span class="itemQuantity">${apiRes.items[key].quantity}</span>
-        <button class="plusBtn--js">+</button>
+        <button aria-label="Add Item" class="plusBtn--js">+</button>
         <span>X</span>
         <span tabindex="0">Rs.${apiRes.items[key].item.price}</span>
       </div>
@@ -52,9 +52,9 @@ const liListItems = (apiRes) => {
 }
 
 const emptyCartHTML = `
-  <div tabindex="0" class="cartHeader" id="cartHeader--js">
+  <div tabindex="0" class="overlay__cart-detail-view__cart-header" id="cartHeader--js">
     <h4>${constants.CART_HEADER_LABEL}</h4>
-    <button class="closeOverlay--js">x</button>
+    <button aria-label="Close" class="closeOverlay--js">x</button>
   </div>
   <div tabindex="0" id="cartEmpty">
     <div class="cartEmptyText">
@@ -142,5 +142,4 @@ const increaseCartCount = (e) => {
 
 if (cartDiv) {
   cartDiv.addEventListener("click", showCartOverlay);
-  cartDiv.addEventListener("keypress", showCartOverlay);
 }

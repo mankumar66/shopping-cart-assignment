@@ -10,7 +10,7 @@
         <a href="/login">{{constants.SIGN_IN_LABEL}}</a>
         <a href="/register">{{constants.REGISTER_LABEL}}</a>
       </div>
-      <div tabindex="0" class="header__main-content__cart" id="cart--js">
+      <button aria-label="Open Cart" class="header__main-content__cart" id="cart--js">
         <img class="header__main-content__cart__image" src="/static/images/cart.svg" alt="Brand logo">
         {{# if cart.totalItems}}
         <span class="header__main-content__cart__item-description"><span id="itemCount">{{cart.totalItems}} </span>
@@ -19,7 +19,7 @@
         <span class="header__main-content__cart__item-description"><span id="itemCount">0 </span>
           {{constants.ITEM_LABEL}}</span>
         {{/if}}
-      </div>
+      </button>
     </div>
   </div>
 </header>

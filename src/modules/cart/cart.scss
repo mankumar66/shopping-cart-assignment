@@ -19,7 +19,7 @@
     top: 50px;
     width: $FULL_WIDTH;
     height: calc(100% - 50px);
-    .cartHeader {
+    &__cart-header {
       justify-content: space-between;
       width: $FULL_WIDTH;
       background: $WHITE;
@@ -48,7 +48,6 @@
       width: auto;
       padding: 10px;
       #promoSpan {
-        font-size: small;
         padding-bottom: 10px;
       }
       button {
@@ -87,49 +86,50 @@
       flex-direction: column;
       .lowestPriceBranding {
         align-items: center;
-        width: 90%;
+        width: 98%;
         padding: 10px;
         border-radius: 6px;
         background: $WHITE;
         margin-top: 10px;
-        margin-right: 20px;
         img {
           width: 20%;
+          margin-right: 20px;
         }
       }
     }
-  }
-  #cartItems {
-    flex-direction: column;
-    height: calc(100vh - 120px);
-    li {
-      width: $FULL_WIDTH;
-      flex-direction: row;
-      display: flex;
-      padding: 10px;
-      background: $WHITE;
-      border-bottom: 1px solid $GRAY;
-      img {
-        width: 20%;
-      }
-      .itemDetail {
-        flex-direction: column;
-        padding: 5px 10px;
-        justify-content: space-around;
-        flex: auto;
-        button {
-          border-radius: 50%;
+
+    #cartItems {
+      flex-direction: column;
+      height: calc(100vh - 120px);
+      li {
+        width: $FULL_WIDTH;
+        flex-direction: row;
+        display: flex;
+        padding: 10px;
+        background: $WHITE;
+        border-bottom: 1px solid $GRAY;
+        img {
+          width: 20%;
         }
-        button,
-        span {
-          margin-right: 5px;
+        .itemDetail {
+          flex-direction: column;
+          padding: 5px 10px;
+          justify-content: space-around;
+          flex: auto;
+          button {
+            border-radius: 50%;
+          }
+          button,
+          span {
+            margin-right: 5px;
+          }
         }
-      }
-      .itemCost {
-        padding: 5px 10px;
-        align-items: flex-end;
-        span {
-          font-weight: 600;
+        .itemCost {
+          padding: 5px 10px;
+          align-items: flex-end;
+          span {
+            font-weight: 600;
+          }
         }
       }
     }
@@ -157,14 +157,14 @@
     &__cart-detail-view {
       width: 30%;
       left: 60%;
+      &__cart-header {
+        color: $WHITE;
+        background: $BLACK;
+      }
     }
 
     #cartItems li img {
       width: 20%;
-    }
-    .cartHeader {
-      color: $WHITE;
-      background: $BLACK;
     }
   }
 }

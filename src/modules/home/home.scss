@@ -14,10 +14,8 @@ section {
       }
     }
     &__nav-links {
-      cursor: pointer;
       position: absolute;
       background: rgba(113, 113, 113, 0.62);
-      color: $WHITE;
       font-size: small;
       padding: 8px;
       &#arrow-left {

@@ -6,8 +6,8 @@
                 src="{{bannerImageUrl}}" />
         </div>
         {{/each}}
-        <a class="slider-container__nav-links" id="arrow-left" href="#">{{constants.PREV_LABEL}}</a>
-        <a class="slider-container__nav-links" id="arrow-right" href="#">{{constants.NEXT_LABEL}}</a>
+        <button class="slider-container__nav-links" id="arrow-left">{{constants.PREV_LABEL}}</button>
+        <button class="slider-container__nav-links" id="arrow-right">{{constants.NEXT_LABEL}}</button>
         <div class="slider-container__dots-wrapper">
             {{#each sliderContent}}
             <span tabindex="0" class="slider-container__dots-wrapper__dot dot--js"></span>
@@ -17,7 +17,7 @@
 </section>
 <section>
     {{#each categoryContent }}
-    <div  tabindex="0" class="category-list-item">
+    <div tabindex="0" class="category-list-item">
         <img data-index="{{id}}" class="category-list-item__image" alt="{{key}}" src="{{imageUrl}}" />
         <div class="category-list-item__description">
             <span>{{name}}</span>
