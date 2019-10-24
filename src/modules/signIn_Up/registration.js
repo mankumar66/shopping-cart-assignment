@@ -46,9 +46,10 @@ const validateForm = () => {
 };
 
 
-const handleSubmit = () => {
+const handleSubmit = (e) => {
+  e.preventDefault();
   if (validateForm()) {
     document.getElementById("form").submit();
   }
 }
-if (submitBtn) submitBtn.addEventListener("click", handleSubmit);
+if (submitBtn) submitBtn.addEventListener("click", e => handleSubmit(e));

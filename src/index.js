@@ -10,7 +10,6 @@ import './modules/signIn_Up/signin.scss';
 /* Importing all js files */
 
 import './modules/home';
-import './modules/cart';
 import './modules/header';
 import './modules/product';
 import './modules/signIn_Up';
